@@ -233,6 +233,14 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.typing-divider {
+  width: 70px;
+  height: 5px;
+  background: var(--gradient);
+  margin: 1rem 0;
+  border-radius: 2px;
+  animation: pulseDivider 2s ease-in-out infinite;
+}
 
 .hero-description {
   font-size: 1.1rem;

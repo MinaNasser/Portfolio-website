@@ -59,7 +59,7 @@ function initTypingAnimation() {
     typeSpeed: 50,
     backSpeed: 30,
     loop: true,
-    backDelay: 2000,
+    backDelay: 5000,
     showCursor: false,
     cursorChar: "|",
   });
@@ -69,7 +69,7 @@ function initTypingAnimation() {
       ".NET Full Stack Developer",
       "Software Architect",
       "Microservices Specialist",
-      "CQRS & Clean Architecture",
+      "CQRS Clean Architecture",
       "RabbitMQ Expert",
       "Unit Testing Advocate",
       "DevOps Enthusiast",
@@ -79,7 +79,7 @@ function initTypingAnimation() {
     typeSpeed: 50,
     backSpeed: 30,
     loop: true,
-    backDelay: 2000,
+    backDelay: 1000,
     showCursor: false,
     cursorChar: "|",
   });
