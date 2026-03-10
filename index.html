@@ -1,620 +1,872 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mina Nasser | Full Stack Developer & Software Architect</title>
+    <!-- icon in the tab -->
+    <link rel="icon" href="./img/portfolio/favicon.ico" type="image/x-icon" />
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mina Nasser || Portfolio website</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- boxicon css link -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!-- Image in HTML TITLE -->
-     <link rel="icon" href="./img/hero (2).png" type="image/x-icon">
-</head>
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-<body>
-    <div class="overlay"></div>
-    <header>
-        <a href="#" class="logo"><span>M</span>ina</a>
-        <ul class="navlist">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="right-header">
-            <a href="#" class="btn">Let's chat <i class='bx bx-message-dots'></i></a>
-            <div class="menu-icon">
-                <div class="bar"></div>
-            </div>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Icon image -->
+
+        <div class="logo">Mina Nasser</div>
+        <div class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#skills">Skills</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#contact">Contact</a>
         </div>
-    </header>
-
-    <section class="home" id="home">
-        <div class="hero-info">
-            <h3>Welcome To my World</h3>
-            <h1>Hi I'm Mina</h1>
-
-            <div class="text-animate">
-                <h2>FullStack Developer</h2>
-            </div>
-            <div class="ttt"> <span>d</span><span>e</span><span>s</span><span>i</span><span>g</span><span>n</span>&nbsp;
-                <span>a</span><span>n</span><span>d</span>&nbsp;
-                <span>c</span><span>r</span><span>e</span><span>a</span><span>t</span><span>e</span>&nbsp;
-                <span>w</span><span>e</span><span>b</span><span>s</span><span>i</span><span>t</span><span>e</span><span>s</span>&nbsp;
-                <span>a</span><span>n</span><span>d</span>&nbsp;
-                <span>a</span><span>p</span><span>p</span><span>l</span><span>i</span><span>c</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>&nbsp;
-                <span>f</span><span>o</span><span>r</span>&nbsp;
-                <span>v</span><span>a</span><span>r</span><span>i</span><span>o</span><span>u</span><span>s</span>&nbsp;
-                <span>p</span><span>l</span><span>a</span><span>t</span><span>f</span><span>o</span><span>r</span><span>m</span><span>s</span>.
-                <br>
-                <span>A</span>&nbsp;<span>f</span><span>u</span><span>l</span><span>l</span>-<span>s</span><span>t</span><span>a</span><span>c</span><span>k</span>&nbsp;
-                <span>d</span><span>e</span><span>v</span><span>e</span><span>l</span><span>o</span><span>p</span><span>e</span><span>r</span><span>’</span><span>s</span>&nbsp;
-                <span>j</span><span>o</span><span>b</span>&nbsp;<span>d</span><span>e</span><span>s</span><span>c</span><span>r</span><span>i</span><span>p</span><span>t</span><span>i</span><span>o</span><span>n</span>&nbsp;
-                <span>m</span><span>i</span><span>g</span><span>h</span><span>t</span>&nbsp;<span>i</span><span>n</span><span>c</span><span>l</span><span>u</span><span>d</span><span>e</span>&nbsp;
-                <span>t</span><span>h</span><span>e</span>&nbsp;<span>f</span><span>o</span><span>l</span><span>l</span><span>o</span><span>w</span><span>i</span><span>n</span><span>g</span>:
-                <span>t</span><span>h</span><span>e</span>&nbsp;
-                <span>f</span><span>r</span><span>o</span><span>n</span><span>t</span>-<span>e</span><span>n</span><span>d</span>&nbsp;
-                <span>a</span><span>n</span><span>d</span>&nbsp;
-                <span>b</span><span>a</span><span>c</span><span>k</span>-<span>e</span><span>n</span><span>d</span>&nbsp;
-                <span>d</span><span>e</span><span>v</span><span>e</span><span>l</span><span>o</span><span>p</span><span>m</span><span>e</span><span>n</span><span>t</span>&nbsp;
-                <span>p</span><span>r</span><span>o</span><span>c</span><span>e</span><span>s</span><span>s</span><span>e</span><span>s</span>&nbsp;
-                <span>b</span><span>u</span><span>i</span><span>l</span><span>d</span>&nbsp;
-                <span>n</span><span>e</span><span>w</span>&nbsp;
-                <span>p</span><span>r</span><span>o</span><span>d</span><span>u</span><span>c</span><span>t</span>&nbsp;
-                <span>f</span><span>e</span><span>a</span><span>t</span><span>u</span><span>r</span><span>e</span><span>s</span>&nbsp;
-                <span>o</span><span>r</span>&nbsp;
-                <span>a</span><span>p</span><span>i</span><span>s</span>&nbsp;
-                <span>p</span><span>e</span><span>r</span><span>f</span><span>o</span><span>r</span><span>m</span>&nbsp;
-                <span>t</span><span>e</span><span>s</span><span>t</span><span>s</span>,&nbsp;
-                <span>t</span><span>r</span><span>o</span><span>u</span><span>b</span><span>l</span><span>e</span><span>s</span><span>h</span><span>o</span><span>o</span><span>t</span>&nbsp;
-                <span>s</span><span>o</span><span>f</span><span>w</span><span>a</span><span>r</span><span>e</span>,&nbsp;
-                <span>a</span><span>n</span><span>d</span>&nbsp;
-                <span>f</span><span>i</span><span>x</span>&nbsp;
-                <span>b</span><span>u</span><span>g</span><span>s</span>&nbsp;
-                <span>c</span><span>o</span><span>l</span><span>l</span><span>a</span><span>b</span><span>o</span><span>r</span><span>a</span><span>t</span><span>e</span>&nbsp;
-                <span>w</span><span>i</span><span>t</span><span>h</span>&nbsp;
-                <span>o</span><span>t</span><span>h</span><span>e</span>&nbsp;
-                <span>o</span><span>t</span><span>h</span><span>e</span><span>r</span>&nbsp;
-                <span>d</span><span>e</span><span>p</span><span>a</span><span>r</span><span>t</span><span>m</span><span>e</span><span>n</span><span>t</span><span>s</span>&nbsp;
-                <span>o</span><span>n</span>&nbsp;
-                <span>p</span><span>r</span><span>o</span><span>j</span><span>e</span><span>c</span><span>t</span><span>s</span>&nbsp;
-                <span>a</span><span>n</span><span>d</span>&nbsp;
-                <span>s</span><span>p</span><span>r</span><span>i</span><span>n</span><span>t</span><span>s</span>.
-            </div>
-            <div class="btn-box">
-                <a href="mailto:minanasser82018@mail.com" class="btn">Hire Me Now ! <i
-                        class='bx bx-right-arrow-alt'></i></a>
-                <a href="./CV.pdf" target="_blank" class="btn d-CV">Download CV <i class='bx bx-download'></i></a>
-                <!-- <a href="img/resume.pdf" target="_blank" class="btn d-CV">Download CV <i class='bx bx-download'></i></a> -->
-            </div>
-
-            <div class="social-media">
-                <div class="bg-icon">
-                    <a href="https://www.instagram.com/mina_al5al/"><i class='bx bxl-instagram'></i></a>
-                    <span></span>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://github.com/MinaNasser"><i class='bx bxl-github'></i></a>
-                    <span></span>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://x.com/MinaAl5al"><i class='bx bxl-twitter'></i></a>
-                    <span></span>
-                </div>
-
-                <div class="bg-icon">
-                    <a href="https://www.facebook.com/MinaAl5al/"><i class='bx bxl-facebook'></i></a>
-                    <span></span>
-                </div>
-            </div>
+        <div class="menu-btn">
+          <i class="fas fa-bars"></i>
         </div>
-        <div class="img-hero">
-            <img src="img/hero (2).png" alt="" style="
-                    border-radius: 70%;
-                    object-fit: cover;
-                    object-position: center;
-                    top: 76px;
-                    left: 10px;
-                ">
-            <div class="rotate-text">
-                <div class="text">
-                    <p>I'm Full Stack Developer , And I'm Designer</p>
-                </div>
-                <span><i></i></span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-content" data-aos="fade-right">
+            <div class="typing-container">
+              <div class="typing-text" id="typing1"></div>
+              <div class="typing-text" id="typing2"></div>
             </div>
+            <p class="hero-description">
+              Full Stack Developer with expertise in .NET Core, Angular,
+              Node.js, and MongoDB. Specialized in building scalable
+              architectures, microservices, and cloud-native applications.
+            </p>
+            <div class="badge-container">
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> .NET Full Stack</span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> Software Architect</span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> Microservices</span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> DevOps</span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> Kubernetes</span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i> CRM/BI</span
+              >
+            </div>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">
+                Hire Me Now! <i class="fas fa-arrow-right"></i>
+              </a>
+              <a
+                href="./Mina_Nasser_Enjilizy_Fullsatck.pdf"
+                class="btn btn-outline"
+                target="_blank"
+              >
+                Download CV <i class="fas fa-download"></i>
+              </a>
+              <a
+                href="https://portfolio-website-pearl-five-19.vercel.app/"
+                class="btn btn-outline"
+                target="_blank"
+              >
+                Portfolio <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/MinaNasser"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a href="https://www.linkedin.com/in/mina-nasser-al5al/"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://x.com/MinaAl5al"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="https://www.youtube.com/@al5al207"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://www.instagram.com/mina_al5al/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+          <div class="hero-image" data-aos="fade-left">
+            <img src="img/hero (2).png" alt="Mina Nasser" />
+            <div class="experience-badge">
+              <span class="years">1+</span>
+              <span class="text">Years Experience</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
-        <div class="about-img">
-            <img src="img/hero (2).png" alt="" class="aboutHero" style="
-                border-radius: 70%;
-                object-fit: cover;
-                object-position: center;
-                top: 76px;
-                left: 10px;
-                ">
-            <div class="showcase-ring">
-                <img src="shapes/ring.png" class="ring">
-                <img src="shapes/circle.png" class="circle">
-            </div>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">ABOUT ME</span>
+          <h2 class="section-title">
+            Full Stack Developer & <span>Software Architect</span>
+          </h2>
         </div>
         <div class="about-content">
-            <h2 class="heading">About Me</h2>
-            <h3>2 Year's Experience on Product Design</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint voluptatem autem ex in. Temporibus et
-                maiores ipsum recusandae voluptas consequatur!</p>
-            <div class="about-btn">
-                <button class="active">Main Skills</button>
-                <button>Awards</button>
-                <button>Education</button>
-            </div>
-            <div class="content-btn">
-                <div class="content">
-                    <div class="text-box">
-                        <p>User Experience Design - UI / UX</p>
-                        <span>Delight the user and make it work.</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Web & User Interface Design - Development</p>
-                        <span>Website , Web Experience , ...</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Interaction Desing - Animation</p>
-                        <span>I Like to move it move it</span>
-                    </div>
-                </div>
+          <div class="about-text" data-aos="fade-right">
+            <p class="about-description">
+              I'm a passionate Full Stack Developer with expertise in building
+              scalable, high-performance applications. Graduate of ITI
+              Professional Program with specialization in .NET Full Stack
+              Development and Software Architecture.
+            </p>
 
-                <div class="content">
-                    <div class="text-box">
-                        <p>Web Design Award</p>
-                        <span>Award for creativity and user experience.</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Code and Development Award</p>
-                        <span>Exceptional coding skills and develoment techniques</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Hackathons and coding Competiotions</p>
-                        <span>Participating in hackathons and coding.</span>
-                    </div>
-                </div>
-
-
-                <div class="content">
-                    <div class="text-box">
-                        <p>Online Courses and Bootcamps</p>
-                        <span>Delight the user and make it work.</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Internships and Work Experience</p>
-                        <span>Website , Web Experience , ...</span>
-                    </div>
-                    <div class="text-box">
-                        <p>Bachelor's Degree in Computer Science</p>
-                        <span>I Like to move it move it</span>
-                    </div>
-                </div>
+            <div class="info-grid">
+              <div class="info-card">
+                <i class="fas fa-user"></i>
+                <h4>Name</h4>
+                <p>Mina Nasser Enjilizy</p>
+              </div>
+              <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h4>Phone</h4>
+                <p>+201289565248</p>
+              </div>
+              <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h4>Email</h4>
+                <p>minanasser82018@gmail.com</p>
+              </div>
+              <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Location</h4>
+                <p>Egypt, Cairo/Qena</p>
+              </div>
+              <div class="info-card">
+                <i class="fas fa-calendar"></i>
+                <h4>Birth Date</h4>
+                <p>July 20, 2000</p>
+              </div>
+              <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h4>Education</h4>
+                <p>ITI Graduate | CS Degree</p>
+              </div>
             </div>
-            <div class="cvContent">
-                <!-- <a href="img/resume.pdf" target="_blank" class="btn d-CV">Download CV <i class='bx bx-download'></i></a> -->
-                <a href="./CV.pdf" target="_blank" class="btn d-CV">Download CV <i class='bx bx-download'></i></a>
+
+            <div class="stats-container">
+              <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Projects Completed</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">GitHub Repos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5+</div>
+                <div class="stat-label">Design Patterns</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Architectures</div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </section>
 
+    <!-- GitHub Repositories Section -->
+    <section class="github-repos" id="github">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">OPEN SOURCE</span>
+          <h2 class="section-title">GitHub <span>Repositories</span></h2>
+        </div>
+        <div class="repos-grid" id="repos-grid">
+          <!-- Repos will be loaded via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
     <section class="services" id="services">
-        <div class="main-text">
-            <h2 class="heading">My Services</h2>
-            <span>what i will do for you</span>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">MY SERVICES</span>
+          <h2 class="section-title">What I <span>Do For You</span></h2>
         </div>
-
-        <div class="allServices">
-            <div class="servicesItem">
-                <div class="icon-services">
-                    <i class='bx bx-layer'></i>
-                    <span></span>
-                </div>
-                <h3>App Development</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure inventore ea nemo ab recusandae modi
-                    voluptates maxime ipsam eveniet. Facilis.</p>
-                <a href="#" class="readMore">Read More</a>
+        <div class="services-grid">
+          <div class="service-card" data-aos="zoom-in">
+            <div class="service-icon">
+              <i class="fas fa-code"></i>
             </div>
-
-            <div class="servicesItem">
-                <div class="icon-services">
-                    <i class='bx bx-code-alt'></i>
-                    <span></span>
-                </div>
-                <h3>Web Development</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure inventore ea nemo ab recusandae modi
-                    voluptates maxime ipsam eveniet. Facilis.</p>
-                <a href="#" class="readMore">Read More</a>
+            <h3>Full Stack Development</h3>
+            <p>
+              End-to-end web applications with .NET Core, Angular, Node.js,
+              MongoDB, and Clean Architecture.
+            </p>
+            <div class="service-tech">
+              <span>.NET Core</span>
+              <span>Angular</span>
+              <span>Node.js</span>
             </div>
-
-            <div class="servicesItem">
-                <div class="icon-services">
-                    <i class='bx bx-desktop'></i>
-                    <span></span>
-                </div>
-                <h3>UI / UX Design</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure inventore ea nemo ab recusandae modi
-                    voluptates maxime ipsam eveniet. Facilis.</p>
-                <a href="#" class="readMore">Read More</a>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="service-icon">
+              <i class="fas fa-cloud"></i>
             </div>
-
-            <div class="servicesItem">
-                <div class="icon-services">
-                    <i class='bx bxs-party'></i>
-                    <span></span>
-                </div>
-                <h3>Digital Marketing</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure inventore ea nemo ab recusandae modi
-                    voluptates maxime ipsam eveniet. Facilis.</p>
-                <a href="#" class="readMore">Read More</a>
+            <h3>Microservices Architecture</h3>
+            <p>
+              Design and implementation of scalable microservices with RabbitMQ,
+              gRPC, and Docker.
+            </p>
+            <div class="service-tech">
+              <span>RabbitMQ</span>
+              <span>gRPC</span>
+              <span>Docker</span>
             </div>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Software Architecture</h3>
+            <p>
+              CQRS, Clean Architecture, Design Patterns, and SOLID principles
+              implementation.
+            </p>
+            <div class="service-tech">
+              <span>CQRS</span>
+              <span>Clean Arch</span>
+              <span>Design Patterns</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Database Design</h3>
+            <p>
+              SQL Server, MongoDB, Entity Framework Core, and database
+              optimization.
+            </p>
+            <div class="service-tech">
+              <span>SQL Server</span>
+              <span>MongoDB</span>
+              <span>EF Core</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>DevOps & Cloud</h3>
+            <p>
+              Docker, Kubernetes, CI/CD pipelines, and cloud deployment
+              strategies.
+            </p>
+            <div class="service-tech">
+              <span>Docker</span>
+              <span>Kubernetes</span>
+              <span>CI/CD</span>
+            </div>
+          </div>
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="service-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>CRM & BI Solutions</h3>
+            <p>
+              Microsoft Dynamics 365, Power BI, and data visualization
+              solutions.
+            </p>
+            <div class="service-tech">
+              <span>Dynamics 365</span>
+              <span>Power BI</span>
+            </div>
+          </div>
         </div>
-
-        <div class="proposal">
-            <div class="text-box">
-                <span>Get It Touch</span>
-                <h3>Have a Project On Your Mind</h3>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-            <img src="img/playstore.png" class="first" style="background-color: #000; border-radius: 50%;">
-        </div>
-
-        <div class="showcase">
-            <img src="shapes/ring.png" class="ring">
-            <img src="shapes/circle.png" class="circle">
-            <img src="shapes/circle.png" class="circle2">
-            <img src="shapes/circle.png" class="circle3">
-            <img src="shapes/half-ring.png" class="half-ring">
-        </div>
+      </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
-        <div class="main-text">
-            <h2 class="heading">My Services</h2>
-            <span>what i will do for you</span>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">PORTFOLIO</span>
+          <h2 class="section-title">Featured <span>Projects</span></h2>
         </div>
-        <div class="fillter-buttons">
-            <button class="button mixitup-control-active" data-filter="all">All Work</button>
-            <button class="button" data-filter=".web">Web Development</button>
-            <button class="button" data-filter=".uiux">UI/UX Design</button>
-            <button class="button" data-filter=".branding">Branding Design</button>
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-aos="fade-up">
+            <div class="portfolio-image">
+              <img src="img/portfolio/dms.png" alt="DMS Medical Platform" />
+            </div>
+            <div class="portfolio-content">
+              <h3>DMS Medical Platform</h3>
+              <p>
+                Scalable architecture for medical system supporting 500k users
+                with microservices, RabbitMQ, and Kubernetes.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">.NET Core</span>
+                <span class="tag">RabbitMQ</span>
+                <span class="tag">K8s</span>
+                <span class="tag">Microservices</span>
+              </div>
+              <a href="#" class="project-link"
+                >View Project <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-image">
+              <img src="img/portfolio/pointpay.jpg" alt="PointPay" />
+            </div>
+            <div class="portfolio-content">
+              <h3>PointPay - Rewards Platform</h3>
+              <p>
+                E-commerce loyalty system with CQRS, Mediator pattern, and Clean
+                Architecture.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">CQRS</span>
+                <span class="tag">Mediator</span>
+                <span class="tag">Clean Arch</span>
+                <span class="tag">Angular</span>
+              </div>
+              <a href="#" class="project-link"
+                >View Project <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="portfolio-image">
+              <img src="img/portfolio/RabbitMQ.png" alt="RabbitMQ" />
+            </div>
+            <div class="portfolio-content">
+              <h3>RabbitMQ Implementation</h3>
+              <p>
+                Complete RabbitMQ implementation with Direct, Topic, Fanout, and
+                Header exchanges.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">RabbitMQ</span>
+                <span class="tag">Message Queue</span>
+                <span class="tag">.NET</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/RabbitMQ"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="portfolio-image">
+              <img src="img/portfolio/cqrs.jfif" alt="CQRS Pattern" />
+            </div>
+            <div class="portfolio-content">
+              <h3>CQRS Pattern Implementation</h3>
+              <p>
+                Complete CQRS pattern with Mediator, separated read/write
+                models, and performance optimization.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">CQRS</span>
+                <span class="tag">Mediator</span>
+                <span class="tag">DDD</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/CQRS_Pattern"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="portfolio-image">
+              <img
+                src="img/portfolio/CleanArchitecture.jfif"
+                alt="Clean Architecture"
+              />
+            </div>
+            <div class="portfolio-content">
+              <h3>Clean Architecture Template</h3>
+              <p>
+                Enterprise-grade Clean Architecture template with separation of
+                concerns and dependency inversion.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">Clean Arch</span>
+                <span class="tag">DDD</span>
+                <span class="tag">SOLID</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/CleanArchitecture"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="500">
+            <div class="portfolio-image">
+              <img src="img/portfolio/unittesting.png" alt="Unit Testing" />
+            </div>
+            <div class="portfolio-content">
+              <h3>Unit Testing Best Practices</h3>
+              <p>
+                Comprehensive unit testing with MSTest, Assert, StringAssert,
+                and CollectionAssert.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">MSTest</span>
+                <span class="tag">TDD</span>
+                <span class="tag">Unit Tests</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/UnitTesting"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="600">
+            <div class="portfolio-image">
+              <img src="img/portfolio/signalr.jfif" alt="SignalR" />
+            </div>
+            <div class="portfolio-content">
+              <h3>SignalR Real-time Apps</h3>
+              <p>
+                Real-time applications with SignalR including chat and
+                e-commerce notifications.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">SignalR</span>
+                <span class="tag">WebSockets</span>
+                <span class="tag">Real-time</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/SignalR"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
+          <div class="portfolio-item" data-aos="fade-up" data-aos-delay="700">
+            <div class="portfolio-image">
+              <img src="img/portfolio/ecommerce.jfif" alt="E-commerce" />
+            </div>
+            <div class="portfolio-content">
+              <h3>E-commerce with SignalR</h3>
+              <p>
+                Full e-commerce platform with real-time updates and
+                notifications using SignalR.
+              </p>
+              <div class="portfolio-tags">
+                <span class="tag">.NET Core</span>
+                <span class="tag">SignalR</span>
+                <span class="tag">EF Core</span>
+              </div>
+              <a
+                href="https://github.com/MinaNasser/E-Commerc-with-SingelR"
+                class="project-link"
+                target="_blank"
+                >View Repo <i class="fab fa-github"></i
+              ></a>
+            </div>
+          </div>
         </div>
-
-        <div class="portfolio-gallery">
-            <div class="portfolio-box mix uiux">
-                <div class="portfolio-content">
-                    <h3>UI/UX Design</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/1.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio-box mix web">
-                <div class="portfolio-content">
-                    <h3>Web Design</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/2.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio-box mix web">
-                <div class="portfolio-content">
-                    <h3>Web Development</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/3.jpg" alt="">
-                </div>
-            </div>
-
-
-            <div class="portfolio-box mix web">
-                <div class="portfolio-content">
-                    <h3>Web Development</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/4.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio-box mix uiux">
-                <div class="portfolio-content">
-                    <h3>UI/UX Design</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/5.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="portfolio-box mix branding">
-                <div class="portfolio-content">
-                    <h3>Web Development</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, soluta.</p>
-                    <a href="#" class="readMore">Explore More</a>
-                </div>
-                <div class="portfolio-img">
-                    <img src="img/portfolio/6.jpg" alt="">
-                </div>
-            </div>
-        </div>
-
+      </div>
     </section>
 
-    <section class="blog" id="blog">
-        <div class="main-text">
-            <h2 class="heading">Blog</h2>
-            <span>Latest News & Post</span>
+    <!-- Design Patterns Section -->
+    <section class="design-patterns" id="patterns">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">DESIGN PATTERNS</span>
+          <h2 class="section-title">
+            Software Design <span>Patterns in C#</span>
+          </h2>
         </div>
 
-        <div class="blog-box swiper mySwiper">
-            <div class="cards swiper-wrapper">
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/1.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Jan 14, 2023</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/2.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Jan 14, 2023</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/3.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Jan 14, 2023</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/4.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Desamber 22, 2024</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/5.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Desamber 22, 2024</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-                <div class="card swiper-slide">
-                    <div class="card-top">
-                        <img src="img/blog/6.jpg" alt="">
-                    </div>
-                    <div class="card-info">
-                        <h2>Mobile App Landing Page</h2>
-                        <span class="date">Sunday, Desamber 22, 2024</span>
-                        <p class="excerpt">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, illo.
-                        </p>
-                        <a href="#" class="readMore">Explore More</a>
-                    </div>
-                </div>
-
-            </div>
+        <div class="patterns-categories">
+          <div class="category-card" data-aos="fade-right">
+            <h3><i class="fas fa-cube"></i> Creational Patterns</h3>
+            <ul class="pattern-list">
+              <li>Singleton</li>
+              <li>Factory Method</li>
+              <li>Abstract Factory</li>
+              <li>Builder</li>
+              <li>Prototype</li>
+            </ul>
+          </div>
+          <div class="category-card" data-aos="fade-up">
+            <h3><i class="fas fa-puzzle-piece"></i> Structural Patterns</h3>
+            <ul class="pattern-list">
+              <li>Adapter</li>
+              <li>Bridge</li>
+              <li>Composite</li>
+              <li>Decorator</li>
+              <li>Facade</li>
+              <li>Flyweight</li>
+              <li>Proxy</li>
+            </ul>
+          </div>
+          <div class="category-card" data-aos="fade-left">
+            <h3><i class="fas fa-code-branch"></i> Behavioral Patterns</h3>
+            <ul class="pattern-list">
+              <li>Chain of Responsibility</li>
+              <li>Command</li>
+              <li>Interpreter</li>
+              <li>Iterator</li>
+              <li>Mediator</li>
+              <li>Memento</li>
+              <li>Observer</li>
+              <li>State</li>
+              <li>Strategy</li>
+              <li>Template Method</li>
+              <li>Visitor</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="swiper-pagination"></div>
-
-        <div class="showcase">
-            <img src="shapes/ring.png" class="ring">
-            <img src="shapes/second-circle.png" class="second-circle">
-            <img src="shapes/circle.png" class="circle">
-            <img src="shapes/half-ring.png" class="half-ring">
+        <div class="pattern-repo" data-aos="fade-up">
+          <a
+            href="https://github.com/MinaNasser/Design-Patterns"
+            class="repo-link"
+            target="_blank"
+          >
+            <i class="fab fa-github"></i> View Design Patterns Repository
+          </a>
         </div>
-
+      </div>
     </section>
 
-    <section class="down-box" id="contact">
-        <div class="contactSkills">
-            <div class="contact-info">
-                <div class="main-text">
-                    <h2 class="heading">Contact Me</h2>
-                    <span>get in touch with me</span>
-                </div>
-                <form action="#">
-                    <div class="input-box">
-                        <input type="text" placeholder="First Name">
-                        <input type="text" placeholder="Last Name">
-                    </div>
-                    <input type="email" placeholder="Email">
-                    <input type="text" placeholder="Subject">
-                    <textarea name="#" id="" cols="30" rows="10">
-                    </textarea>
-                    <div class="formBtn">
-                        <button type="submit" class="btn">Send Message</button>
-                    </div>
-                </form>
-            </div>
-            <div class="skills">
-                <div class="container">
-                    <div class="skillBox">
-                        <div class="main-text">
-                            <h2 class="heading">My Skills</h2>
-                            <span>Let Me Help you</span>
-                        </div>
-                        <div class="skill-wrap">
-                            <div class="skill">
-                                <div class="outer-circle">
-                                    <div class="inner-circle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px"
-                                            height="180px">
-                                            <defs>
-                                                <linearGradient id="GradientColor">
-                                                    <stop offset="0%" stop-color="#e91e63" />
-                                                    <stop offset="100%" stop-color="#673ab7" />
-                                                </linearGradient>
-                                            </defs>
-                                            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                                        </svg>
-                                        <h2 class="counter">
-                                            <span data-target="92">0</span>%
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="sk-title">
-                                    HTML
-                                </div>
-                            </div>
-
-                            <div class="skill">
-                                <div class="outer-circle">
-                                    <div class="inner-circle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px"
-                                            height="180px">
-                                            <defs>
-                                                <linearGradient id="GradientColor">
-                                                    <stop offset="0%" stop-color="#e91e63" />
-                                                    <stop offset="100%" stop-color="#673ab7" />
-                                                </linearGradient>
-                                            </defs>
-                                            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                                        </svg>
-                                        <h2 class="counter">
-                                            <span data-target="75">0</span>%
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="sk-title">
-                                    CSS
-                                </div>
-                            </div>
-
-
-                            <div class="skill">
-                                <div class="outer-circle">
-                                    <div class="inner-circle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px"
-                                            height="180px">
-                                            <defs>
-                                                <linearGradient id="GradientColor">
-                                                    <stop offset="0%" stop-color="#e91e63" />
-                                                    <stop offset="100%" stop-color="#673ab7" />
-                                                </linearGradient>
-                                            </defs>
-                                            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                                        </svg>
-                                        <h2 class="counter">
-                                            <span data-target="60">0</span>%
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="sk-title">
-                                    JavaScript
-                                </div>
-                            </div>
-
-
-                            <div class="skill">
-                                <div class="outer-circle">
-                                    <div class="inner-circle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px"
-                                            height="180px">
-                                            <defs>
-                                                <linearGradient id="GradientColor">
-                                                    <stop offset="0%" stop-color="#e91e63" />
-                                                    <stop offset="100%" stop-color="#673ab7" />
-                                                </linearGradient>
-                                            </defs>
-                                            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                                        </svg>
-                                        <h2 class="counter">
-                                            <span data-target="20">0</span>%
-                                        </h2>
-                                    </div>
-                                </div>
-                                <div class="sk-title">
-                                    UI/UX Design
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">TECHNICAL SKILLS</span>
+          <h2 class="section-title">My <span>Expertise</span></h2>
         </div>
+
+        <div class="skills-categories">
+          <div class="skills-category" data-aos="fade-right">
+            <h3><i class="fas fa-code"></i> Frontend</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">Angular</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">Redux</span>
+              <span class="skill-tag">Vite</span>
+              <span class="skill-tag">Tailwind</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">SASS</span>
+            </div>
+          </div>
+          <div class="skills-category" data-aos="fade-up">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">.NET Core</span>
+              <span class="skill-tag">C#</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">Express.js</span>
+              <span class="skill-tag">GraphQL</span>
+              <span class="skill-tag">gRPC</span>
+              <span class="skill-tag">RESTful APIs</span>
+            </div>
+          </div>
+          <div class="skills-category" data-aos="fade-left">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">SQL Server</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MongoDB</span>
+              <span class="skill-tag">Firebase</span>
+              <span class="skill-tag">Entity Framework</span>
+            </div>
+          </div>
+          <div
+            class="skills-category"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            <h3><i class="fas fa-cloud"></i> DevOps & Cloud</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Google Cloud</span>
+              <span class="skill-tag">Nginx</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">CI/CD</span>
+            </div>
+          </div>
+          <div class="skills-category" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Kubernetes</span>
+              <span class="skill-tag">RabbitMQ</span>
+              <span class="skill-tag">Redis</span>
+              <span class="skill-tag">Jira</span>
+            </div>
+          </div>
+          <div
+            class="skills-category"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            <h3><i class="fas fa-chart-bar"></i> CRM & BI</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">Dynamics 365</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">DAX</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <span class="section-subtitle">CONTACT</span>
+          <h2 class="section-title">Get In <span>Touch</span></h2>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Contact Info Cards -->
+          <div class="contact-info-grid" data-aos="fade-right">
+            <div class="contact-info-card">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p><a href="tel:+201289565248">+20 128 956 5248</a></p>
+                <span class="contact-availability">Available 24/7</span>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>
+                  <a href="mailto:minanasser82018@gmail.com"
+                    >minanasser82018@gmail.com</a
+                  >
+                </p>
+                <span class="contact-availability">Reply within 24h</span>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Location</h4>
+                <p>Egypt, Cairo / Qena</p>
+                <span class="contact-availability">Remote / On-site</span>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-icon-wrapper">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Portfolio</h4>
+                <p>
+                  <a
+                    href="https://portfolio-website-pearl-five-19.vercel.app/"
+                    target="_blank"
+                    >View Portfolio</a
+                  >
+                </p>
+                <span class="contact-availability">Live Preview</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-wrapper" data-aos="fade-left">
+            <div class="form-header">
+              <h3>Send Me a Message</h3>
+              <p>I'll get back to you as soon as possible</p>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="name">Your Name</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder=" "
+                    required
+                  />
+                  <label for="email">Your Email</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder=" "
+                  required
+                />
+                <label for="subject">Subject</label>
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder=" "
+                  required
+                ></textarea>
+                <label for="message">Your Message</label>
+              </div>
+              <div class="form-status" id="formStatus"></div>
+              <button
+                type="submit"
+                class="btn btn-primary submit-btn"
+                id="submitBtn"
+              >
+                <span class="btn-text">Send Message</span>
+                <span class="btn-loader"
+                  ><i class="fas fa-spinner fa-spin"></i
+                ></span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+
+            <!-- Quick Contact Options -->
+            <div class="quick-contact">
+              <p>Or connect directly:</p>
+              <div class="quick-links">
+                <a
+                  href="https://wa.me/201289565248"
+                  class="quick-link whatsapp"
+                  target="_blank"
+                >
+                  <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a
+                  href="https://telegram.me/MinaAl5al"
+                  class="quick-link telegram"
+                  target="_blank"
+                >
+                  <i class="fab fa-telegram"></i> Telegram
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>Copyright © 2024 by <span>Mina Nasser</span> || All Right Reservd.</p>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">Mina Nasser</div>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a href="https://github.com/MinaNasser"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/mina-nasser-al5al/"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://x.com/MinaAl5al"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com/@al5al207"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a href="https://www.instagram.com/mina_al5al/"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+          <p class="copyright">
+            © 2025 Mina Nasser Enjilizy. All rights reserved.
+          </p>
+          <p class="tech-stack">
+            .NET Core | Angular | Node.js | MongoDB | Kubernetes | RabbitMQ
+          </p>
+        </div>
+      </div>
     </footer>
 
-    <div id="progress">
-        <span id="progress-value">
-            <i class='bx bxs-chevrons-up'></i>
-        </span>
-    </div>
-
-    <!-- scroll reveal  -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- mixitup cdn js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js"></script>
-</body>
-
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
