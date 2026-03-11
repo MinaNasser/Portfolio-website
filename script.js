@@ -1,5 +1,6 @@
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
+  initLanguage(); // إضافة نظام الترجمة
   initTheme();
   initAOS();
   initTypingAnimation();
@@ -12,13 +13,267 @@ document.addEventListener("DOMContentLoaded", function () {
   initCodeCopy();
   initScrollToTop();
   addValidationStyles();
+  setTimeout(updateAgeDisplay, 100); // تأخير بسيط
 });
 
+// ==================== LANGUAGE MANAGEMENT ====================
+let currentLanguage = localStorage.getItem("language") || "en";
+let translations = {};
+
+async function initLanguage() {
+  const langDropdown = document.getElementById("langDropdown");
+  const langOptions = document.querySelectorAll(".lang-option");
+  const selectedLangSpan = document.querySelector(".selected-lang");
+
+  // Load initial language
+  await loadLanguage(currentLanguage);
+
+  // تحديث النص المعروض في الزر حسب اللغة الحالية مع الأيقونة
+  updateSelectedLanguageDisplay(selectedLangSpan);
+
+  // تحديث حالة الـ active للغة الحالية
+  updateActiveOption(currentLanguage);
+
+  // Toggle dropdown menu
+  if (langDropdown) {
+    langDropdown.addEventListener("click", (e) => {
+      e.stopPropagation();
+      langDropdown.classList.toggle("active");
+    });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (langDropdown && !langDropdown.contains(e.target)) {
+      langDropdown.classList.remove("active");
+    }
+  });
+
+  // Handle language selection
+  langOptions.forEach((option) => {
+    option.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      const lang = option.getAttribute("data-lang");
+
+      // Load new language
+      currentLanguage = lang;
+      await loadLanguage(currentLanguage);
+      localStorage.setItem("language", currentLanguage);
+
+      // تحديث واجهة المستخدم
+      updateSelectedLanguageDisplay(selectedLangSpan);
+      updateActiveOption(lang);
+
+      // Close dropdown
+      if (langDropdown) {
+        langDropdown.classList.remove("active");
+      }
+
+      // Reinitialize AOS and Typed for new language
+      setTimeout(() => {
+        AOS.refresh();
+        initTypingAnimation();
+      }, 100);
+    });
+  });
+}
+
+// دالة لتحديث الـ active class في القائمة
+function updateActiveOption(lang) {
+  document.querySelectorAll(".lang-option").forEach((option) => {
+    const optionLang = option.getAttribute("data-lang");
+    if (optionLang === lang) {
+      option.classList.add("active");
+    } else {
+      option.classList.remove("active");
+    }
+  });
+}
+
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`./lang/${lang}.json`);
+    translations = await response.json();
+    updateContent();
+    updatePageDirection();
+    updateRepositoriesLanguage();
+    updateDropdownLanguage();
+    updateAgeDisplay();
+    console.log(`✅ Language loaded: ${lang}`);
+  } catch (error) {
+    console.error("❌ Failed to load language:", error);
+  }
+}
+// دالة لتحديث نصوص القائمة المنسدلة مع أعلام flag-icons
+function updateDropdownLanguage() {
+  document.querySelectorAll(".lang-option").forEach((option) => {
+    const lang = option.getAttribute("data-lang");
+    const textSpan = option.querySelector(".lang-text");
+
+    // مسح المحتوى القديم
+    if (textSpan) {
+      textSpan.innerHTML = "";
+
+      // إنشاء عنصر العلم
+      const flagSpan = document.createElement("span");
+      flagSpan.className = lang === "en" ? "fi fi-us" : "fi fi-eg";
+
+      textSpan.appendChild(flagSpan);
+      textSpan.appendChild(
+        document.createTextNode(
+          " " +
+            (translations[
+              lang === "en" ? "nav_lang_btn_en" : "nav_lang_btn_ar"
+            ] || (lang === "en" ? "English" : "العربية")),
+        ),
+      );
+    }
+  });
+}
+
+// دالة لتحديث النص المعروض في زر اللغة مع أعلام flag-icons
+function updateSelectedLanguageDisplay(selectedLangSpan) {
+  if (!selectedLangSpan) return;
+
+  // مسح المحتوى القديم
+  selectedLangSpan.innerHTML = "";
+
+  if (currentLanguage === "en") {
+    // إنشاء علم أمريكا
+    const flagSpan = document.createElement("span");
+    flagSpan.className = "fi fi-us";
+    selectedLangSpan.appendChild(flagSpan);
+    selectedLangSpan.appendChild(
+      document.createTextNode(
+        " " + (translations["nav_lang_btn_en"] || "English"),
+      ),
+    );
+  } else {
+    // إنشاء علم مصر
+    const flagSpan = document.createElement("span");
+    flagSpan.className = "fi fi-eg";
+    selectedLangSpan.appendChild(flagSpan);
+    selectedLangSpan.appendChild(
+      document.createTextNode(
+        " " + (translations["nav_lang_btn_ar"] || "العربية"),
+      ),
+    );
+  }
+}
+// ==================== حساب العمر ====================
+function calculateAge(birthDateString) {
+  const birthDate = new Date(birthDateString);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  // تصحيح العمر إذا لم يحن عيد الميلاد بعد هذا العام
+  if (
+    monthDiff < 0 ||
+    (monthDiff === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+}
+
+function updateAgeDisplay() {
+  const ageElement = document.getElementById("age-display");
+  if (!ageElement) return;
+
+  const birthDate = "2000-07-20"; // تاريخ ميلادك
+  const age = calculateAge(birthDate);
+
+  // عرض العمر مع الترجمة
+  if (currentLanguage === "en") {
+    ageElement.textContent = `${age} ${translations["info_value_age"] || "years old"}`;
+  } else {
+    ageElement.textContent = `${age} ${translations["info_value_age"] || "سنة"}`;
+  }
+}
+
+function updatePageDirection() {
+  const dir = currentLanguage === "ar" ? "rtl" : "ltr";
+  document.documentElement.dir = dir;
+  document.documentElement.lang = currentLanguage;
+}
+
+// تحديث نصوص المستودعات
+function updateRepositoriesLanguage() {
+  const viewText = translations["github_view"] || "View Repository";
+  document.querySelectorAll(".repo-link").forEach((link) => {
+    const icon = link.querySelector("i");
+    const span = link.querySelector("span[data-i18n]");
+    if (span) {
+      span.textContent = viewText;
+    } else if (icon) {
+      link.innerHTML = `${viewText} `;
+      link.appendChild(icon.cloneNode(true));
+    } else {
+      link.textContent = viewText;
+    }
+  });
+}
+function updateContent() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (translations[key]) {
+      // استثناء لعناصر القائمة المنسدلة
+      if (
+        element.closest(".lang-option") ||
+        element.classList.contains("selected-lang")
+      ) {
+        return;
+      }
+
+      // التحقق إذا كان العنصر هو education-text أو أي عنصر يحتوي على HTML
+      if (
+        element.classList.contains("education-text") ||
+        key.includes("info_value_education")
+      ) {
+        // استخدام innerHTML لدعم الوسوم
+        element.innerHTML = translations[key];
+      }
+      // Handle elements with icons or children
+      else if (element.tagName === "A" || element.tagName === "BUTTON") {
+        const icon = element.querySelector("i");
+        const text = translations[key];
+        if (icon && !element.classList.contains("lang-select-btn")) {
+          element.innerHTML = `${text} `;
+          element.appendChild(icon.cloneNode(true));
+        } else if (!element.classList.contains("lang-select-btn")) {
+          element.textContent = text;
+        }
+      } else {
+        element.textContent = translations[key];
+      }
+    }
+  });
+
+  // Update form labels
+  document.querySelectorAll("label[data-i18n]").forEach((label) => {
+    const key = label.getAttribute("data-i18n");
+    if (translations[key]) {
+      label.textContent = translations[key];
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+    if (translations[key]) {
+      element.placeholder = translations[key];
+    }
+  });
+}
+
+// ==================== باقي الدوال (بدون تغيير) ====================
 // ==================== THEME MANAGEMENT ====================
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
 
-  // Check for saved theme preference
   const savedTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", savedTheme);
   themeToggle.innerHTML =
@@ -54,8 +309,15 @@ function initAOS() {
 function initTypingAnimation() {
   if (typeof Typed === "undefined") return;
 
-  new Typed("#typing1", {
-    strings: ["HI, I'm Mina Nasser Enjilizy", "Welcome to my Portfolio"],
+  // Destroy existing instances if any
+  if (window.typed1) window.typed1.destroy();
+  if (window.typed2) window.typed2.destroy();
+
+  window.typed1 = new Typed("#typing1", {
+    strings: [
+      translations["typing_greeting"] || "HI, I'm Mina Nasser Enjilizy",
+      translations["typing_welcome"] || "Welcome to my Portfolio",
+    ],
     typeSpeed: 50,
     backSpeed: 30,
     loop: true,
@@ -64,17 +326,17 @@ function initTypingAnimation() {
     cursorChar: "|",
   });
 
-  new Typed("#typing2", {
+  window.typed2 = new Typed("#typing2", {
     strings: [
-      ".NET Full Stack Developer",
-      "Software Architect",
-      "Microservices Specialist",
-      "CQRS Clean Architecture",
-      "RabbitMQ Expert",
-      "Unit Testing Advocate",
-      "DevOps Enthusiast",
-      "SignalR Enthusiast",
-      "Angular Enthusiast",
+      translations["typing_dev"] || ".NET Full Stack Developer",
+      translations["typing_architect"] || "Software Architect",
+      translations["typing_microservices"] || "Microservices Specialist",
+      translations["typing_cqrs"] || "CQRS Clean Architecture",
+      translations["typing_rabbitmq"] || "RabbitMQ Expert",
+      translations["typing_testing"] || "Unit Testing Advocate",
+      translations["typing_devops"] || "DevOps Enthusiast",
+      translations["typing_signalr"] || "SignalR Enthusiast",
+      translations["typing_angular"] || "Angular Enthusiast",
     ],
     typeSpeed: 50,
     backSpeed: 30,
@@ -148,21 +410,18 @@ function initScrollEffects() {
   window.addEventListener("scroll", () => {
     const currentScroll = window.scrollY;
 
-    // Navbar background
     if (currentScroll > 50) {
       navbar.style.boxShadow = "0 2px 20px rgba(0, 0, 0, 0.1)";
     } else {
       navbar.style.boxShadow = "none";
     }
 
-    // Scroll to top button
     if (currentScroll > 500) {
       scrollTop.classList.add("visible");
     } else {
       scrollTop.classList.remove("visible");
     }
 
-    // Hide/show navbar
     if (currentScroll > lastScroll && currentScroll > 200) {
       navbar.style.transform = "translateY(-100%)";
     } else {
@@ -324,7 +583,7 @@ function initRepositories() {
                 ${repo.topics.map((topic) => `<span class="topic-tag">${topic}</span>`).join("")}
             </div>
             <a href="${repo.url}" class="repo-link" target="_blank" rel="noopener noreferrer">
-                View Repository <i class="fas fa-arrow-right"></i>
+                <span data-i18n="github_view">View Repository</span> <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     `,
@@ -360,9 +619,6 @@ function initContactForm() {
   const contactForm = document.getElementById("contactForm");
   if (!contactForm) return;
 
-  // console.log("Initializing contact form...");
-
-  // التحقق من تحميل EmailJS
   if (typeof emailjs === "undefined") {
     console.error(
       "EmailJS not loaded. Make sure to include the EmailJS script.",
@@ -371,32 +627,28 @@ function initContactForm() {
     return;
   }
 
-  // المفتاح العام من حساب EmailJS
   const PUBLIC_KEY = "Icwqm4AkrLqkEP2O3";
 
   try {
     emailjs.init(PUBLIC_KEY);
-    // console.log("✅ EmailJS initialized successfully");
   } catch (error) {
     console.error("❌ Failed to initialize EmailJS:", error);
   }
 
   contactForm.addEventListener("submit", handleFormSubmit);
 
-  // Real-time validation
   contactForm.querySelectorAll("input, textarea").forEach((input) => {
     input.addEventListener("input", () => validateField(input));
     input.addEventListener("blur", () => validateField(input));
   });
 }
 
-// دالة عرض خطأ EmailJS
 function showEmailJSError() {
   const formStatus = document.getElementById("formStatus");
   if (formStatus) {
     formStatus.innerHTML = `
       <i class="fas fa-exclamation-triangle"></i>
-      Email service not loaded. Please refresh the page or contact me directly at 
+      ${translations["form_error_service"] || "Email service not loaded. Please refresh the page or contact me directly at"} 
       <a href="mailto:minanasser82018@gmail.com">minanasser82018@gmail.com</a>
     `;
     formStatus.className = "form-status error";
@@ -404,7 +656,6 @@ function showEmailJSError() {
   }
 }
 
-// دالة معالجة إرسال النموذج - النسخة النهائية
 async function handleFormSubmit(e) {
   e.preventDefault();
 
@@ -412,13 +663,16 @@ async function handleFormSubmit(e) {
   const submitBtn = form.querySelector('button[type="submit"]');
   const formStatus = document.getElementById("formStatus");
 
-  // التحقق من صحة الحقول
   if (!validateForm(form)) {
-    showFormStatus(formStatus, "❌ Please fill all fields correctly", "error");
+    showFormStatus(
+      formStatus,
+      translations["form_error_fields"] ||
+        "❌ Please fill all fields correctly",
+      "error",
+    );
     return;
   }
 
-  // جمع البيانات مع الوقت والتاريخ
   const formData = {
     name: document.getElementById("name")?.value.trim() || "",
     email: document.getElementById("email")?.value.trim() || "",
@@ -428,11 +682,11 @@ async function handleFormSubmit(e) {
     date: getCurrentDate(),
   };
 
-  // التحقق من صحة الإيميل
   if (!isValidEmail(formData.email)) {
     showFormStatus(
       formStatus,
-      "❌ Please enter a valid email address",
+      translations["form_error_email"] ||
+        "❌ Please enter a valid email address",
       "error",
     );
     return;
@@ -440,7 +694,6 @@ async function handleFormSubmit(e) {
 
   console.log("📧 Sending email with data:", formData);
 
-  // إظهار حالة التحميل
   submitBtn.classList.add("loading");
   submitBtn.disabled = true;
   formStatus.style.display = "none";
@@ -449,12 +702,10 @@ async function handleFormSubmit(e) {
     const SERVICE_ID = "service_dchjwzn";
     const TEMPLATE_ID = "template_om5mtdp";
 
-    // التحقق من وجود EmailJS
     if (typeof emailjs === "undefined") {
       throw new Error("EmailJS not loaded");
     }
 
-    // إرسال الإيميل - تأكد من تطابق أسماء المتغيرات مع قالبك
     const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
       name: formData.name,
       email: formData.email,
@@ -470,55 +721,28 @@ async function handleFormSubmit(e) {
     if (response && response.status === 200) {
       showFormStatus(
         formStatus,
-        "✅ Message sent successfully! I'll get back to you soon.",
+        translations["form_success"] ||
+          "✅ Message sent successfully! I'll get back to you soon.",
         "success",
       );
-      form.reset(); // تفريغ النموذج
+      form.reset();
     } else {
       throw new Error("Failed to send email");
     }
   } catch (error) {
     console.error("❌ EmailJS Error:", error);
-
-    let errorMessage = "❌ Failed to send message. ";
-    if (error.text) {
-      errorMessage += error.text;
-    } else if (error.message) {
-      errorMessage += error.message;
-    } else {
-      errorMessage += "Please try again or contact me directly via email.";
-    }
-
-    showFormStatus(formStatus, errorMessage, "error");
+    showFormStatus(
+      formStatus,
+      translations["form_error_general"] ||
+        "❌ Failed to send. Please try again.",
+      "error",
+    );
   } finally {
-    // إخفاء حالة التحميل
     submitBtn.classList.remove("loading");
     submitBtn.disabled = false;
   }
 }
 
-// دالة إرسال الرد التلقائي (اختياري)
-async function sendAutoReply(userData) {
-  try {
-    const SERVICE_ID = "service_dchjwzn";
-    // إذا كان لديك قالب منفصل للرد التلقائي، ضع معرفه هنا
-    const AUTO_REPLY_TEMPLATE_ID = "template_om5mtdp"; // أو قالب آخر
-
-    await emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, {
-      to_name: userData.name,
-      to_email: userData.email,
-      message: userData.message,
-      time: userData.time,
-      date: userData.date,
-      from_name: "Mina Nasser",
-    });
-    console.log("✅ Auto-reply sent to:", userData.email);
-  } catch (error) {
-    console.log("Auto-reply failed:", error);
-  }
-}
-
-// دالة عرض حالة النموذج
 function showFormStatus(element, message, type) {
   if (!element) return;
 
@@ -533,19 +757,16 @@ function showFormStatus(element, message, type) {
   element.style.marginBottom = "15px";
   element.style.fontSize = "14px";
 
-  // إخفاء بعد 7 ثوان
   setTimeout(() => {
     element.style.display = "none";
   }, 7000);
 }
 
-// دالة التحقق من صحة الإيميل
 function isValidEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 
-// دالة التحقق من صحة النموذج
 function validateForm(form) {
   const inputs = form.querySelectorAll("input[required], textarea[required]");
   let isValid = true;
@@ -558,7 +779,6 @@ function validateForm(form) {
     }
   });
 
-  // تمرير المؤشر لأول حقل غير صحيح
   if (firstInvalid) {
     firstInvalid.focus();
   }
@@ -566,20 +786,24 @@ function validateForm(form) {
   return isValid;
 }
 
-// دالة التحقق من صحة الحقل الفردي
 function validateField(field) {
   const value = field.value.trim();
   let isValid = true;
 
-  // إزالة أي رسالة خطأ سابقة
   removeFieldError(field);
 
   if (!value) {
     isValid = false;
-    showFieldError(field, "This field is required");
+    showFieldError(
+      field,
+      translations["form_error_required"] || "This field is required",
+    );
   } else if (field.type === "email" && !isValidEmail(value)) {
     isValid = false;
-    showFieldError(field, "Please enter a valid email address");
+    showFieldError(
+      field,
+      translations["form_error_email"] || "Please enter a valid email address",
+    );
   }
 
   field.classList.toggle("error", !isValid);
@@ -588,7 +812,6 @@ function validateField(field) {
   return isValid;
 }
 
-// دالة إظهار خطأ الحقل
 function showFieldError(field, message) {
   const formGroup = field.closest(".form-group");
   if (!formGroup) return;
@@ -608,7 +831,6 @@ function showFieldError(field, message) {
   formGroup.appendChild(error);
 }
 
-// دالة إزالة خطأ الحقل
 function removeFieldError(field) {
   const formGroup = field.closest(".form-group");
   if (formGroup) {
@@ -617,7 +839,6 @@ function removeFieldError(field) {
   }
 }
 
-// إضافة أنماط CSS للتحقق من صحة الحقول
 function addValidationStyles() {
   const style = document.createElement("style");
   style.textContent = `
@@ -762,7 +983,6 @@ function debounce(func, wait) {
   };
 }
 
-// Optimize scroll
 window.addEventListener("scroll", debounce(updateActiveMenuItem, 10), {
   passive: true,
 });
