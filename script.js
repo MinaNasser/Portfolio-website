@@ -1,9 +1,8 @@
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
-  initLanguage(); // إضافة نظام الترجمة
+  initLanguage(); // إضافة نظام الترجمة (هي دي المسؤولة عن تحميل الترجمات)
   initTheme();
   initAOS();
-  initTypingAnimation();
   initMobileMenu();
   initScrollEffects();
   initSmoothScroll();
@@ -12,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   initIntersectionObserver();
   initCodeCopy();
   initScrollToTop();
+  initGoToBottom();
   addValidationStyles();
-  setTimeout(updateAgeDisplay, 100); // تأخير بسيط
 });
 
 // ==================== LANGUAGE MANAGEMENT ====================
@@ -78,6 +77,96 @@ async function initLanguage() {
   });
 }
 
+async function loadLanguage(lang) {
+  try {
+    const response = await fetch(`./lang/${lang}.json`);
+    translations = await response.json();
+
+    // تحديث كل حاجة بعد تحميل الترجمات
+    updateContent();
+    updatePageDirection();
+    updateRepositoriesLanguage();
+    updateDropdownLanguage();
+    updateAgeDisplay();
+    updateLogoText(); // تحديث الـ Logo بعد تحميل الترجمات
+    initTypingAnimation(); // إعادة تشغيل الـ Typing Animation
+
+    console.log(`✅ Language loaded: ${lang}`);
+  } catch (error) {
+    console.error("❌ Failed to load language:", error);
+  }
+}
+
+// دالة لتحديث نص الـ Logo
+function updateLogoText() {
+  const logoText = document.querySelector(".logo-text");
+  if (!logoText) return;
+
+  if (currentLanguage === "en") {
+    logoText.textContent = translations["nav_name_logo"] || "Mina Nasser";
+  } else {
+    logoText.textContent = translations["nav_name_logo"] || "مينا ناصر";
+  }
+}
+
+// دالة لتحديث المحتوى بالكامل
+function updateContent() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const key = element.getAttribute("data-i18n");
+    if (translations[key]) {
+      // استثناء لعناصر القائمة المنسدلة
+      if (
+        element.closest(".lang-option") ||
+        element.classList.contains("selected-lang")
+      ) {
+        return;
+      }
+
+      // التحقق إذا كان العنصر هو education-text أو أي عنصر يحتوي على HTML
+      if (
+        element.classList.contains("education-text") ||
+        key.includes("info_value_education")
+      ) {
+        // استخدام innerHTML لدعم الوسوم
+        element.innerHTML = translations[key];
+      }
+      // Handle elements with icons or children
+      else if (element.tagName === "A" || element.tagName === "BUTTON") {
+        const icon = element.querySelector("i");
+        const text = translations[key];
+        if (icon && !element.classList.contains("lang-select-btn")) {
+          // Keep the icon and update text
+          element.innerHTML = `${text} `;
+          element.appendChild(icon.cloneNode(true));
+        } else if (!element.classList.contains("lang-select-btn")) {
+          element.textContent = text;
+        }
+      } else {
+        element.textContent = translations[key];
+      }
+    }
+  });
+
+  // Update form labels
+  document.querySelectorAll("label[data-i18n]").forEach((label) => {
+    const key = label.getAttribute("data-i18n");
+    if (translations[key]) {
+      label.textContent = translations[key];
+    }
+  });
+
+  // Update placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.getAttribute("data-i18n-placeholder");
+    if (translations[key]) {
+      element.placeholder = translations[key];
+    }
+  });
+
+  // تحديث نص الـ Logo بشكل منفصل
+  updateLogoText();
+}
+
 // دالة لتحديث الـ active class في القائمة
 function updateActiveOption(lang) {
   document.querySelectorAll(".lang-option").forEach((option) => {
@@ -90,20 +179,6 @@ function updateActiveOption(lang) {
   });
 }
 
-async function loadLanguage(lang) {
-  try {
-    const response = await fetch(`./lang/${lang}.json`);
-    translations = await response.json();
-    updateContent();
-    updatePageDirection();
-    updateRepositoriesLanguage();
-    updateDropdownLanguage();
-    updateAgeDisplay();
-    console.log(`✅ Language loaded: ${lang}`);
-  } catch (error) {
-    console.error("❌ Failed to load language:", error);
-  }
-}
 // دالة لتحديث نصوص القائمة المنسدلة مع أعلام flag-icons
 function updateDropdownLanguage() {
   document.querySelectorAll(".lang-option").forEach((option) => {
@@ -160,6 +235,30 @@ function updateSelectedLanguageDisplay(selectedLangSpan) {
     );
   }
 }
+
+function updatePageDirection() {
+  const dir = currentLanguage === "ar" ? "rtl" : "ltr";
+  document.documentElement.dir = dir;
+  document.documentElement.lang = currentLanguage;
+}
+
+// تحديث نصوص المستودعات
+function updateRepositoriesLanguage() {
+  const viewText = translations["github_view"] || "View Repository";
+  document.querySelectorAll(".repo-link").forEach((link) => {
+    const icon = link.querySelector("i");
+    const span = link.querySelector("span[data-i18n]");
+    if (span) {
+      span.textContent = viewText;
+    } else if (icon) {
+      link.innerHTML = `${viewText} `;
+      link.appendChild(icon.cloneNode(true));
+    } else {
+      link.textContent = viewText;
+    }
+  });
+}
+
 // ==================== حساب العمر ====================
 function calculateAge(birthDateString) {
   const birthDate = new Date(birthDateString);
@@ -194,82 +293,6 @@ function updateAgeDisplay() {
   }
 }
 
-function updatePageDirection() {
-  const dir = currentLanguage === "ar" ? "rtl" : "ltr";
-  document.documentElement.dir = dir;
-  document.documentElement.lang = currentLanguage;
-}
-
-// تحديث نصوص المستودعات
-function updateRepositoriesLanguage() {
-  const viewText = translations["github_view"] || "View Repository";
-  document.querySelectorAll(".repo-link").forEach((link) => {
-    const icon = link.querySelector("i");
-    const span = link.querySelector("span[data-i18n]");
-    if (span) {
-      span.textContent = viewText;
-    } else if (icon) {
-      link.innerHTML = `${viewText} `;
-      link.appendChild(icon.cloneNode(true));
-    } else {
-      link.textContent = viewText;
-    }
-  });
-}
-function updateContent() {
-  document.querySelectorAll("[data-i18n]").forEach((element) => {
-    const key = element.getAttribute("data-i18n");
-    if (translations[key]) {
-      // استثناء لعناصر القائمة المنسدلة
-      if (
-        element.closest(".lang-option") ||
-        element.classList.contains("selected-lang")
-      ) {
-        return;
-      }
-
-      // التحقق إذا كان العنصر هو education-text أو أي عنصر يحتوي على HTML
-      if (
-        element.classList.contains("education-text") ||
-        key.includes("info_value_education")
-      ) {
-        // استخدام innerHTML لدعم الوسوم
-        element.innerHTML = translations[key];
-      }
-      // Handle elements with icons or children
-      else if (element.tagName === "A" || element.tagName === "BUTTON") {
-        const icon = element.querySelector("i");
-        const text = translations[key];
-        if (icon && !element.classList.contains("lang-select-btn")) {
-          element.innerHTML = `${text} `;
-          element.appendChild(icon.cloneNode(true));
-        } else if (!element.classList.contains("lang-select-btn")) {
-          element.textContent = text;
-        }
-      } else {
-        element.textContent = translations[key];
-      }
-    }
-  });
-
-  // Update form labels
-  document.querySelectorAll("label[data-i18n]").forEach((label) => {
-    const key = label.getAttribute("data-i18n");
-    if (translations[key]) {
-      label.textContent = translations[key];
-    }
-  });
-
-  // Update placeholders
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
-    const key = element.getAttribute("data-i18n-placeholder");
-    if (translations[key]) {
-      element.placeholder = translations[key];
-    }
-  });
-}
-
-// ==================== باقي الدوال (بدون تغيير) ====================
 // ==================== THEME MANAGEMENT ====================
 function initTheme() {
   const themeToggle = document.getElementById("themeToggle");
@@ -313,11 +336,25 @@ function initTypingAnimation() {
   if (window.typed1) window.typed1.destroy();
   if (window.typed2) window.typed2.destroy();
 
+  // التأكد من وجود الترجمات
+  const greeting1 =
+    translations["typing_greeting"] || "HI, I'm Mina Nasser Enjilizy";
+  const greeting2 = translations["typing_welcome"] || "Welcome to my Portfolio";
+
+  const devStrings = [
+    translations["typing_dev"] || ".NET Full Stack Developer",
+    translations["typing_architect"] || "Software Architect",
+    translations["typing_microservices"] || "Microservices Specialist",
+    translations["typing_cqrs"] || "CQRS Clean Architecture",
+    translations["typing_rabbitmq"] || "RabbitMQ Expert",
+    translations["typing_testing"] || "Unit Testing Advocate",
+    translations["typing_devops"] || "DevOps Enthusiast",
+    translations["typing_signalr"] || "SignalR Enthusiast",
+    translations["typing_angular"] || "Angular Enthusiast",
+  ];
+
   window.typed1 = new Typed("#typing1", {
-    strings: [
-      translations["typing_greeting"] || "HI, I'm Mina Nasser Enjilizy",
-      translations["typing_welcome"] || "Welcome to my Portfolio",
-    ],
+    strings: [greeting1, greeting2],
     typeSpeed: 50,
     backSpeed: 30,
     loop: true,
@@ -327,17 +364,7 @@ function initTypingAnimation() {
   });
 
   window.typed2 = new Typed("#typing2", {
-    strings: [
-      translations["typing_dev"] || ".NET Full Stack Developer",
-      translations["typing_architect"] || "Software Architect",
-      translations["typing_microservices"] || "Microservices Specialist",
-      translations["typing_cqrs"] || "CQRS Clean Architecture",
-      translations["typing_rabbitmq"] || "RabbitMQ Expert",
-      translations["typing_testing"] || "Unit Testing Advocate",
-      translations["typing_devops"] || "DevOps Enthusiast",
-      translations["typing_signalr"] || "SignalR Enthusiast",
-      translations["typing_angular"] || "Angular Enthusiast",
-    ],
+    strings: devStrings,
     typeSpeed: 50,
     backSpeed: 30,
     loop: true,
@@ -983,6 +1010,33 @@ function debounce(func, wait) {
   };
 }
 
+// ==================== GO TO BOTTOM ====================
+function initGoToBottom() {
+  const goBottomBtn = document.getElementById("goBottom");
+  const scrollTopBtn = document.getElementById("scrollTop");
+
+  if (!goBottomBtn) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+
+    // إظهار الزر إذا مش في آخر الصفحة
+    if (scrollY + windowHeight < documentHeight - 100) {
+      goBottomBtn.classList.add("visible");
+    } else {
+      goBottomBtn.classList.remove("visible");
+    }
+  });
+
+  goBottomBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  });
+}
 window.addEventListener("scroll", debounce(updateActiveMenuItem, 10), {
   passive: true,
 });

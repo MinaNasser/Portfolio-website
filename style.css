@@ -137,12 +137,70 @@ body {
   align-items: center;
 }
 
+/* Logo Styles - محسنة لـ RTL حسب الطلب النهائي */
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+  /* الترتيب الافتراضي: الصورة على اليسار، النص على اليمين (للإنجليزي) */
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+  transition: var(--transition);
+  order: 1; /* الصورة في البداية (على اليسار في LTR) */
+}
+
+.logo-text {
+  margin: 0;
+  padding: 0;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  order: 2; /* النص بعد الصورة (على اليمين في LTR) */
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-light);
+}
+
+/* RTL Logo Styles - الترتيب المطلوب: صورة على اليمين، نص على اليسار */
+[dir="rtl"] .logo {
+  flex-direction: row; /* نحافظ على الصف */
+}
+
+[dir="rtl"] .logo-img {
+  order: 1; /* الصورة تفضل الأولى (على اليمين في RTL) */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+[dir="rtl"] .logo-text {
+  order: 2; /* النص يفضل الثاني (على اليسار في RTL) */
+}
+
+/* Responsive Logo */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+
+  .logo-img {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .nav-links {
@@ -1885,7 +1943,80 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+/* Go to Bottom Button */
+.go-bottom {
+  position: fixed;
+  bottom: 200px; /* فوق زر scroll-top شوية */
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 99;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  opacity: 0;
+  visibility: hidden;
+}
 
+.go-bottom.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.go-bottom:hover {
+  transform: translateY(3px); /* نزول لتحت بدل فوق */
+  box-shadow: var(--shadow-hover);
+}
+
+/* RTL Support */
+[dir="rtl"] .go-bottom {
+  right: auto;
+  left: 20px;
+}
+
+/* تعديل المسافات بين الأزرار */
+.theme-toggle {
+  bottom: 140px;
+}
+
+.go-bottom {
+  bottom: 80px; /* تحت theme-toggle */
+}
+
+.scroll-top {
+  bottom: 20px; /* تحت go-bottom */
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .theme-toggle {
+    bottom: 120px;
+  }
+
+  .go-bottom {
+    bottom: 70px;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .scroll-top {
+    bottom: 20px;
+  }
+
+  [dir="rtl"] .go-bottom {
+    right: auto;
+    left: 15px;
+  }
+}
 /* Responsive Design - Medium Screens */
 @media (max-width: 992px) {
   .services-grid,
