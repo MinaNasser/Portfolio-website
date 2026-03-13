@@ -27,7 +27,7 @@
   "typing_devops": "DevOps Enthusiast",
   "typing_signalr": "SignalR Enthusiast",
   "typing_angular": "Angular Enthusiast",
-
+  "view_all_skills": "View All Skills & Patterns",
   "badge_net": ".NET Full Stack",
   "badge_architect": "Software Architect",
   "badge_microservices": "Microservices",
@@ -150,5 +150,9 @@
   "form_success": "✅ Message sent successfully! I'll get back to you soon.",
   "form_error_fields": "❌ Please fill all fields correctly",
   "form_error_email": "❌ Please enter a valid email address",
-  "form_error_general": "❌ Failed to send. Please try again."
+  "form_error_general": "❌ Failed to send. Please try again.",
+  "service_read_more": "Read More",
+  "technologies_used": "Technologies Used:",
+  "related_projects": "Related Projects:",
+  "inquire_now": "Inquire Now"
 }

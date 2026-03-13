@@ -27,7 +27,7 @@
   "typing_devops": "مهتم بـ DevOps",
   "typing_signalr": "مهتم بـ SignalR",
   "typing_angular": "مهتم بـ Angular",
-
+  "view_all_skills": "عرض جميع المهارات والأنماط",
   "badge_net": ".NET ويب متكامل",
   "badge_architect": "مهندس برمجيات",
   "badge_microservices": "خدمات مصغرة",
@@ -148,5 +148,9 @@
   "form_success": "✅ تم إرسال الرسالة بنجاح! سأرد عليك قريباً.",
   "form_error_fields": "❌ الرجاء ملء جميع الحقول بشكل صحيح",
   "form_error_email": "❌ الرجاء إدخال بريد إلكتروني صحيح",
-  "form_error_general": "❌ فشل الإرسال. الرجاء المحاولة مرة أخرى."
+  "form_error_general": "❌ فشل الإرسال. الرجاء المحاولة مرة أخرى.",
+  "service_read_more": "اقرأ المزيد",
+  "technologies_used": "التقنيات المستخدمة:",
+  "related_projects": "مشاريع ذات صلة:",
+  "inquire_now": "استفسر الآن"
 }
