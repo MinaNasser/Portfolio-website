@@ -65,6 +65,34 @@ const projects = [
     stars: "52",
     forks: "15",
   },
+  {
+    name: "HandMade - Artisan Marketplace",
+    description:
+      "A digital marketplace connecting artisans with customers seeking unique, handcrafted products.",
+    longDescription:
+      "HandMade is a full-stack e-commerce platform designed specifically for artisans and crafters to showcase and sell their handmade creations. The platform features separate interfaces for buyers and sellers, comprehensive product management, wishlist functionality, and a robust rating system. Built with scalability in mind, it implements a clean architecture pattern with generic repositories and unit of work for maintainable data access.",
+    image: "HandMade.jpeg",
+    tags: [
+      "ASP.NET Core 8",
+      "Entity Framework",
+      "Angular 17",
+      "SQL Server",
+      "Clean Architecture",
+      "REST API",
+    ],
+    demoUrl: "#",
+    repoUrl: "https://github.com/MinaNasser/Hand-Made",
+    category: "web",
+    features: [
+      "Dual Interface (Buyer/Seller views)",
+      "Shopping Cart & Wishlist",
+      "Product Rating System",
+      "Order Management",
+      "Image Upload & Management",
+    ],
+    stars: "38",
+    forks: "12",
+  },
 
   // RabbitMQ Implementation (موجود)
   {
