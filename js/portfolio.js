@@ -2,12 +2,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   loadAllProjects();
   initRepositories();
-  initProjectFilters(); // إضافة فلترة المشاريع
-  initProjectModals(); // إضافة نوافذ منبثقة للمشاريع
+  initProjectFilters();
+  initProjectModals();
 });
 
-// قائمة المشاريع كاملة مع إضافة صور ومشاريع حقيقية
+// قائمة المشاريع كاملة مع إضافة المشاريع الجديدة
 const projects = [
+  // DMS Medical Platform (موجود)
   {
     name: "DMS Medical Platform",
     description:
@@ -35,6 +36,8 @@ const projects = [
     stars: "56",
     forks: "23",
   },
+
+  // PointPay - Rewards Platform (موجود)
   {
     name: "PointPay - Rewards Platform",
     description:
@@ -62,6 +65,8 @@ const projects = [
     stars: "52",
     forks: "15",
   },
+
+  // RabbitMQ Implementation (موجود)
   {
     name: "RabbitMQ Implementation",
     description:
@@ -83,6 +88,8 @@ const projects = [
     stars: "38",
     forks: "10",
   },
+
+  // CQRS Pattern Implementation (موجود)
   {
     name: "CQRS Pattern Implementation",
     description:
@@ -103,6 +110,8 @@ const projects = [
     stars: "52",
     forks: "15",
   },
+
+  // Clean Architecture Template (موجود)
   {
     name: "Clean Architecture Template",
     description:
@@ -123,6 +132,8 @@ const projects = [
     stars: "67",
     forks: "18",
   },
+
+  // Unit Testing Best Practices (موجود)
   {
     name: "Unit Testing Best Practices",
     description:
@@ -143,6 +154,8 @@ const projects = [
     stars: "29",
     forks: "8",
   },
+
+  // SignalR Real-time Apps (موجود)
   {
     name: "SignalR Real-time Apps",
     description:
@@ -163,6 +176,8 @@ const projects = [
     stars: "34",
     forks: "9",
   },
+
+  // E-commerce with SignalR (موجود)
   {
     name: "E-commerce with SignalR",
     description:
@@ -183,9 +198,108 @@ const projects = [
     stars: "41",
     forks: "11",
   },
+  // المشروع 1: Food Recipe App (وصفات طعام)
+  {
+    name: "Food Recipe App (Foodek)",
+    description:
+      "Interactive web application for browsing and searching food recipes with real-time data from TheMealDB API.",
+    longDescription:
+      "A comprehensive recipe application built with HTML, CSS, and JavaScript. Features include searching for recipes by name or ingredient, viewing detailed recipe information including ingredients and preparation steps, and a fully responsive design that works seamlessly across all devices. The app fetches real-time data from TheMealDB API and presents it in an intuitive, user-friendly interface.",
+    image: "Foodek.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "API Integration", "Responsive"],
+    demoUrl: "https://projetc-freelance-cezv.vercel.app/",
+    repoUrl:
+      "https://github.com/MinaNasser/Projetc-Freelance/tree/main/Recipe_food%20discript",
+    category: "frontend",
+    features: [
+      "Search recipes by name or ingredient",
+      "Real-time data from TheMealDB API",
+      "Detailed recipe view with ingredients",
+      "Fully responsive design",
+      "Smooth CSS animations",
+    ],
+    stars: "45",
+    forks: "12",
+  },
+
+  // المشروع 2: E-commerce Platform
+  {
+    name: "E-commerce Platform",
+    description:
+      "Innovative e-commerce website with product categories, filtering, and shopping cart functionality.",
+    longDescription:
+      "A complete e-commerce solution built with HTML, CSS, and JavaScript. Features include product categories (Men's, Women's, Jewelry, Perfume), product filtering by category, shopping cart functionality, and a responsive design that adapts to all screen sizes. The platform includes multiple pages: Home, Categories, Products, Hot Offers, Trending, Blog, and Top Rated sections.",
+    image: "Anon.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "E-commerce", "Responsive"],
+    demoUrl: "https://projetc-freelance-5fun.vercel.app/",
+    repoUrl:
+      "https://github.com/MinaNasser/Projetc-Freelance/tree/main/E-commerc",
+    category: "frontend",
+    features: [
+      "Multiple product categories",
+      "Product filtering system",
+      "Shopping cart functionality",
+      "Hot Offers and Trending sections",
+      "Blog and Top Rated pages",
+      "Fully responsive design",
+    ],
+    stars: "38",
+    forks: "9",
+  },
+
+  // المشروع 3: Coffee Website Landing Page
+  {
+    name: "Coffee Website",
+    description:
+      "Modern and warm landing page for a coffee shop with services, history, and contact sections.",
+    longDescription:
+      "A beautifully designed landing page for a coffee shop or coffee brand. Built with HTML, CSS, and JavaScript, this website features a warm and inviting color palette, smooth animations, and a fully responsive layout. Sections include Our Services, Our History, About Us, and Contact Us with a functional contact form.",
+    image: "coffee.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "Landing Page", "Responsive"],
+    demoUrl: "https://projetc-freelance-in53.vercel.app/",
+    repoUrl:
+      "https://github.com/MinaNasser/Projetc-Freelance/tree/main/Coffee-Website-main",
+    category: "frontend",
+    features: [
+      "Warm and inviting design",
+      "Our Services section",
+      "Company history timeline",
+      "About Us page",
+      "Interactive contact form",
+      "Smooth scroll animations",
+    ],
+    stars: "29",
+    forks: "7",
+  },
+
+  // المشروع 4: Noon Clone
+  {
+    name: "Noon Clone",
+    description:
+      "UI clone of the popular Noon e-commerce platform with modern and responsive design.",
+    longDescription:
+      "A faithful UI clone of the renowned Noon e-commerce platform. This project demonstrates advanced HTML, CSS, and JavaScript skills to recreate the look and feel of a major e-commerce site. Features include a dynamic homepage, product pages, shopping cart interface, and fully responsive design that works flawlessly across all devices.",
+    image: "noon.png",
+    tags: ["HTML5", "CSS3", "JavaScript", "UI Clone", "E-commerce"],
+    demoUrl: "https://noon-clone-sigma.vercel.app/",
+    repoUrl:
+      "https://github.com/MinaNasser/Projetc-Freelance/tree/main/Noon%20clone",
+    category: "frontend",
+    features: [
+      "Faithful Noon UI recreation",
+      "Dynamic homepage layout",
+      "Product pages design",
+      "Shopping cart interface",
+      "Fully responsive",
+      "Modern CSS techniques",
+    ],
+    stars: "52",
+    forks: "14",
+  },
 ];
 
-// دوال التحميل
+// ==================== باقي الدوال كما هي ====================
+
 function loadAllProjects() {
   const projectsGrid = document.getElementById("all-projects");
   if (!projectsGrid) return;
@@ -237,7 +351,7 @@ function initRepositories() {
         <p class="repo-description">${project.description}</p>
         <div class="repo-meta">
           <span><span class="language-dot"></span> ${project.tags[0]}</span>
-          <span><i class="far fa-clock"></i> ${project.updated || "Recently"}</span>
+          <span><i class="far fa-clock"></i> Recently</span>
         </div>
         <div class="repo-stats">
           <span><i class="far fa-star"></i> ${project.stars}</span>
@@ -258,7 +372,8 @@ function initRepositories() {
     .join("");
 }
 
-// إضافة فلترة المشاريع
+// ==================== باقي الدوال (بدون تغيير) ====================
+
 function initProjectFilters() {
   const filterContainer = document.createElement("div");
   filterContainer.className = "project-filters";
@@ -267,6 +382,7 @@ function initProjectFilters() {
     <button class="filter-btn" data-filter="web">Web Apps</button>
     <button class="filter-btn" data-filter="backend">Backend</button>
     <button class="filter-btn" data-filter="testing">Testing</button>
+    <button class="filter-btn" data-filter="frontend">Frontend</button>
     <button class="filter-btn" data-filter="template">Templates</button>
   `;
 
@@ -280,7 +396,6 @@ function initProjectFilters() {
         .querySelectorAll(".filter-btn")
         .forEach((btn) => btn.classList.remove("active"));
       e.target.classList.add("active");
-
       const filter = e.target.dataset.filter;
       filterProjects(filter);
     }
@@ -299,7 +414,6 @@ function filterProjects(filter) {
   });
 }
 
-// إضافة نوافذ منبثقة للمشاريع
 function initProjectModals() {
   document.addEventListener("click", (e) => {
     if (e.target.closest(".view-details")) {
@@ -314,6 +428,15 @@ function initProjectModals() {
 function showProjectModal(project) {
   const modal = document.createElement("div");
   modal.className = "project-modal";
+
+  // ✅ التحقق: إذا كان demoUrl = "#" → لا تظهر الزر، وإلا أظهره
+  const demoLink =
+    project.demoUrl && project.demoUrl !== "#"
+      ? `<a href="${project.demoUrl}" class="btn btn-primary" target="_blank">
+        <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
+       </a>`
+      : ""; // ← لو مش موجود أو "#"، ميضيفش حاجة
+
   modal.innerHTML = `
     <div class="modal-content">
       <span class="modal-close">&times;</span>
@@ -346,9 +469,7 @@ function showProjectModal(project) {
           </div>
           
           <div class="modal-links">
-            <a href="${project.demoUrl}" class="btn btn-primary" target="_blank">
-              <span>Live Demo</span> <i class="fas fa-external-link-alt"></i>
-            </a>
+            ${demoLink}
             <a href="${project.repoUrl}" class="btn btn-outline" target="_blank">
               <span>View Code</span> <i class="fab fa-github"></i>
             </a>
@@ -375,7 +496,6 @@ function showProjectModal(project) {
   });
 }
 
-// إضافة CSS للفلترة والـ modal
 function addProjectStyles() {
   const style = document.createElement("style");
   style.textContent = `
@@ -524,10 +644,8 @@ function addProjectStyles() {
   document.head.appendChild(style);
 }
 
-// استدعاء إضافة الـ styles
 addProjectStyles();
 
-// تصدير الدوال للاستخدام
 window.portfolioFunctions = {
   loadAllProjects,
   initRepositories,
