@@ -143,7 +143,7 @@ function initTypingAnimation() {
     showCursor: false, // ✅ إخفاء المؤشر في النص الثاني
   });
 
-  console.log(`✅ Typing animation initialized in ${currentLang}`);
+  // console.log(`✅ Typing animation initialized in ${currentLang}`);
 }
 
 // ✅ جعل الدالة متاحة عالمياً (للاستخدام من main.js)

@@ -78,7 +78,7 @@ async function handleFormSubmit(e) {
     return;
   }
 
-  console.log("📧 Sending email with data:", formData);
+  // console.log("📧 Sending email with data:", formData);
 
   submitBtn.classList.add("loading");
   submitBtn.disabled = true;
@@ -102,7 +102,7 @@ async function handleFormSubmit(e) {
       to_email: "minanasser82018@gmail.com",
     });
 
-    console.log("✅ EmailJS Response:", response);
+    // console.log("✅ EmailJS Response:", response);
 
     if (response && response.status === 200) {
       showFormStatus(

@@ -3527,3 +3527,1122 @@ footer {
 .mb-5 {
   margin-bottom: 3rem;
 }
+/* ==================== TIMELINE STYLES - UNIFIED & FIXED ==================== */
+
+/* تحسين الحاوية الرئيسية */
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+/* ==================== VERTICAL LINE (SIDE ARROW) ==================== */
+.timeline-arrow-container {
+  position: relative;
+  margin-left: 30px;
+  margin-right: auto;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+/* دعم RTL */
+html[dir="rtl"] .timeline-arrow-container {
+  margin-right: 30px;
+  margin-left: auto;
+}
+
+.timeline-arrow-line {
+  position: absolute;
+  left: 15px;
+  top: 0;
+  width: 6px;
+  background: linear-gradient(180deg, #07c073 0%, #0a8f56 50%, #00ff66 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(7, 192, 115, 0.3);
+  transition: height 0.3s ease;
+  z-index: 1;
+}
+
+/* دعم RTL للخط */
+html[dir="rtl"] .timeline-arrow-line {
+  left: auto;
+  right: 15px;
+}
+
+.timeline-arrow-head {
+  position: absolute;
+  left: 5px;
+  bottom: -10px;
+  color: #0a8f56;
+  font-size: 1.8rem;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(10, 143, 86, 0.5));
+  z-index: 10;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* دعم RTL لرأس السهم */
+html[dir="rtl"] .timeline-arrow-head {
+  left: auto;
+  right: 5px;
+  bottom: auto;
+  top: -10px;
+}
+
+.timeline-arrow-head:hover {
+  transform: scale(1.2);
+  color: #00ff66;
+  background: #f0f0f0;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+}
+
+html[dir="rtl"] .timeline-arrow-head:hover {
+  transform: scale(1.2);
+}
+
+/* توهج عند الوصول للآخر */
+.timeline-arrow-line.reached-end {
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.6);
+}
+
+.timeline-arrow-head.reached-end {
+  color: #00ff66;
+  filter: drop-shadow(0 0 10px #00ff66);
+  animation: pulseEnd 1s infinite;
+}
+
+@keyframes pulseEnd {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* ==================== TIMELINE ITEMS ==================== */
+.timeline-item {
+  position: relative;
+  z-index: 2;
+  animation: slideInLeft 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+
+/* دعم RTL */
+html[dir="rtl"] .timeline-item {
+  animation: slideInRight 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+/* تأخيرات مختلفة لكل عنصر */
+.timeline-item:nth-child(1) {
+  animation-delay: 0s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.timeline-item:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.timeline-item:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.timeline-item:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.timeline-item:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.timeline-item:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.timeline-item:nth-child(10) {
+  animation-delay: 0.9s;
+}
+.timeline-item:nth-child(11) {
+  animation-delay: 1s;
+}
+
+/* ==================== CARD CONTENT ==================== */
+.timeline-content {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* إضافة طبقة واقية داخل الكارد */
+.timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  z-index: -1;
+}
+
+/* تأثير hover */
+.timeline-content:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: #07c073;
+  background: #fafafa;
+}
+
+/* ==================== DATE STYLES ==================== */
+.timeline-date {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.date-start,
+.date-end {
+  font-weight: 700;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 192, 115, 0.15) 0%,
+    rgba(7, 192, 115, 0.05) 100%
+  );
+  color: #07c073;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.timeline-arrow {
+  color: #07c073;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* دعم RTL للسهم */
+html[dir="rtl"] .timeline-arrow {
+  transform: rotate(180deg);
+  display: inline-block;
+}
+
+/* ==================== TITLE ==================== */
+.timeline-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #1a1a2e;
+  background: linear-gradient(135deg, #1a1a2e 0%, #07c073 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* ==================== ROLE ==================== */
+.timeline-role {
+  margin: 0.75rem 0 1rem 0;
+}
+
+.role-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #07c073;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.role-title i {
+  font-size: 0.9rem;
+}
+
+/* ==================== DESCRIPTION ==================== */
+.timeline-description {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* ==================== ACHIEVEMENTS ==================== */
+.timeline-achievements {
+  margin: 1.2rem 0;
+  background: rgba(7, 192, 115, 0.05);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  position: relative;
+  z-index: 3;
+}
+
+.achievements-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #07c073;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.achievements-title i {
+  font-size: 1rem;
+}
+
+.achievements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.achievements-list li {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.6;
+}
+
+.achievements-list li i {
+  color: #00ff66;
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.achievements-list li:hover {
+  color: #1a1a2e;
+  transform: translateX(3px);
+  transition: all 0.2s ease;
+}
+
+/* دعم RTL */
+html[dir="rtl"] .achievements-list li:hover {
+  transform: translateX(-3px);
+}
+
+/* ==================== LOCATION ==================== */
+.timeline-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0.5rem 0;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #e0e0e0;
+  font-size: 0.9rem;
+  color: #718096;
+}
+
+.timeline-location i {
+  color: #07c073;
+  font-size: 0.85rem;
+}
+
+/* ==================== TAGS ==================== */
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+.timeline-tag {
+  background: linear-gradient(
+    135deg,
+    rgba(7, 192, 115, 0.12) 0%,
+    rgba(7, 192, 115, 0.05) 100%
+  );
+  color: #07c073;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.timeline-tag:hover {
+  background: #07c073;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(7, 192, 115, 0.3);
+}
+
+/* ==================== CURRENT ITEM (MEDICAL) ==================== */
+.timeline-item.current .timeline-content {
+  border-left: 4px solid #00ff66;
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(0, 255, 102, 0.02) 100%);
+}
+
+/* دعم RTL */
+html[dir="rtl"] .timeline-item.current .timeline-content {
+  border-left: none;
+  border-right: 4px solid #00ff66;
+}
+
+.timeline-item.current .timeline-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00ff66, #00ff66 50%, transparent 100%);
+  animation: slideGlow 2.5s infinite;
+}
+
+.timeline-item.current .timeline-icon {
+  box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.4);
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+  }
+}
+
+@keyframes slideGlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ==================== UPCOMING ITEM ==================== */
+.timeline-item.upcoming .timeline-content {
+  opacity: 0.85;
+  border: 1px dashed #07c073;
+  background: rgba(7, 192, 115, 0.02);
+}
+
+.timeline-item.upcoming .timeline-icon {
+  filter: grayscale(0.2);
+}
+
+/* ==================== ICON STYLES ==================== */
+.timeline-icon {
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 9px;
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+  color: white;
+}
+
+.timeline-icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: inherit;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.timeline-icon:hover::after {
+  transform: scale(1.3);
+  opacity: 0.3;
+}
+
+/* ==================== BADGES ==================== */
+.current-badge,
+.upcoming-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(0, 255, 102, 0.1);
+  color: #00ff66;
+  margin-left: 0.5rem;
+}
+
+html[dir="rtl"] .current-badge,
+html[dir="rtl"] .upcoming-badge {
+  margin-left: 0;
+  margin-right: 0.5rem;
+}
+
+.upcoming-badge {
+  background: rgba(7, 192, 115, 0.1);
+  color: #07c073;
+}
+
+/* ==================== SCROLLBAR ==================== */
+.timeline-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.timeline-content::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+.timeline-content::-webkit-scrollbar-thumb {
+  background: #07c073;
+  border-radius: 10px;
+}
+
+/* ==================== SKELETON LOADER ==================== */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.2s infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+.skeleton-date-start,
+.skeleton-date-end {
+  width: 80px;
+  height: 32px;
+  border-radius: 30px;
+}
+
+.skeleton-title {
+  border-radius: 8px;
+}
+
+.skeleton-line {
+  border-radius: 4px;
+}
+
+.skeleton-tag {
+  width: 80px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+/* ==================== TIMELINE WRAPPER ==================== */
+.timeline-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ==================== PROGRESS INDICATOR ==================== */
+.timeline-progress {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 4px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin: 0.5rem auto 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #07c073, #0a8f56);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* ==================== LOAD MORE BUTTON ==================== */
+.load-more-container {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.load-more-btn {
+  background: linear-gradient(135deg, #07c073 0%, #0a8f56 100%);
+  color: white;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(7, 192, 115, 0.3);
+}
+
+.load-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(7, 192, 115, 0.4);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* شاشات متوسطة (تابلت) */
+@media (max-width: 992px) {
+  .timeline-container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .timeline-title {
+    font-size: 1.4rem;
+  }
+
+  .timeline-description {
+    font-size: 0.95rem;
+  }
+
+  .achievements-list li {
+    font-size: 0.9rem;
+  }
+
+  .timeline-arrow-container {
+    margin-left: 20px;
+  }
+
+  html[dir="rtl"] .timeline-arrow-container {
+    margin-right: 20px;
+  }
+
+  .timeline-arrow-line {
+    left: 8px;
+    width: 5px;
+  }
+
+  html[dir="rtl"] .timeline-arrow-line {
+    right: 8px;
+  }
+
+  .timeline-arrow-head {
+    left: -2px;
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  html[dir="rtl"] .timeline-arrow-head {
+    right: -2px;
+  }
+
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    font-size: 1.3rem;
+  }
+}
+
+/* شاشات صغيرة (موبايل) */
+@media (max-width: 768px) {
+  .timeline-section {
+    padding-top: 100px !important;
+  }
+
+  .timeline-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .timeline-wrapper {
+    gap: 1.5rem;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 1.1rem;
+  }
+
+  .timeline-content {
+    padding: 1.2rem;
+  }
+
+  .timeline-title {
+    font-size: 1.2rem;
+  }
+
+  .timeline-date {
+    font-size: 0.85rem;
+    gap: 0.3rem;
+  }
+
+  .date-start,
+  .date-end {
+    padding: 0.25rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .timeline-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .achievements-list li {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.8rem;
+  }
+
+  .timeline-location {
+    font-size: 0.8rem;
+  }
+
+  /* إخفاء السهم العمودي في الشاشات الصغيرة */
+  .timeline-arrow-container {
+    display: none !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .load-more-btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+  .timeline-section {
+    padding-top: 80px !important;
+  }
+
+  .timeline-container {
+    padding: 0.75rem;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1.1rem;
+  }
+
+  .timeline-date {
+    flex-wrap: wrap;
+  }
+
+  .achievements-title {
+    font-size: 0.85rem;
+  }
+
+  .achievements-list li {
+    font-size: 0.8rem;
+  }
+
+  .timeline-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.7rem;
+  }
+
+  .load-more-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+
+  .progress-bar {
+    width: 150px;
+  }
+}
+
+/* شاشات كبيرة جداً */
+@media (min-width: 1400px) {
+  .timeline-container {
+    max-width: 1200px;
+  }
+
+  .timeline-content {
+    padding: 2.2rem;
+  }
+
+  .timeline-title {
+    font-size: 1.8rem;
+  }
+
+  .timeline-description {
+    font-size: 1.05rem;
+  }
+
+  .achievements-list li {
+    font-size: 1rem;
+  }
+}
+
+/* ==================== DARK MODE ==================== */
+@media (prefers-color-scheme: dark) {
+  /* خلفية الكارد */
+  .timeline-content {
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .timeline-content:hover {
+    background: #16213e;
+    border-color: #07c073;
+  }
+
+  /* العنوان */
+  .timeline-title {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 0%, #07c073 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* الوصف */
+  .timeline-description {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* الإنجازات */
+  .timeline-achievements {
+    background: rgba(0, 255, 102, 0.06);
+  }
+
+  .achievements-list li {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .achievements-list li:hover {
+    color: #ffffff;
+  }
+
+  /* الموقع */
+  .timeline-location {
+    border-top-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* العنصر الحالي */
+  .timeline-item.current .timeline-content {
+    background: #0f0f23;
+    border-left: 4px solid #00ff66;
+  }
+
+  html[dir="rtl"] .timeline-item.current .timeline-content {
+    border-right: 4px solid #00ff66;
+    border-left: none;
+  }
+
+  /* التواريخ */
+  .date-start,
+  .date-end {
+    background: linear-gradient(
+      135deg,
+      rgba(7, 192, 115, 0.25) 0%,
+      rgba(7, 192, 115, 0.08) 100%
+    );
+  }
+
+  /* التاجات */
+  .timeline-tag {
+    background: rgba(7, 192, 115, 0.15);
+  }
+
+  /* رأس السهم */
+  .timeline-arrow-head {
+    background: #1a1a2e;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .timeline-arrow-head:hover {
+    background: #16213e;
+  }
+
+  /* شريط التقدم */
+  .progress-bar {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .timeline-progress {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, #2a2a2a 25%, #353535 50%, #2a2a2a 75%);
+  }
+}
+
+/* ==================== GENERAL FIXES ==================== */
+
+/* منع overflow */
+.timeline-section {
+  overflow-x: hidden;
+}
+
+/* تحسين z-index */
+.timeline-arrow-line {
+  z-index: 1;
+}
+
+.timeline-item {
+  z-index: 2;
+}
+
+.timeline-content {
+  z-index: 2;
+}
+
+.timeline-achievements {
+  z-index: 3;
+}
+
+.timeline-icon {
+  z-index: 2;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+.timeline-arrow-head:focus {
+  outline: none;
+  transform: scale(1.1);
+}
+
+/* ==================== FIX UPCOMING CARD (FIRST CARD) ==================== */
+
+/* جعل الكارد الـ upcoming زي الباقي تماماً */
+.timeline-item.upcoming .timeline-content {
+  opacity: 1; /* تغيير من 0.85 إلى 1 */
+  border: 1px solid var(--border-color, #e0e0e0); /* نفس border الباقي */
+  background: var(--card-bg, #ffffff);
+}
+
+/* إزالة الـ dashed border */
+.timeline-item.upcoming .timeline-content {
+  border: 1px solid #e0e0e0;
+}
+
+/* في الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .timeline-item.upcoming .timeline-content {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a1a2e;
+  }
+}
+
+/* جعل الأيقونة طبيعية (من غير grayscale) */
+.timeline-item.upcoming .timeline-icon {
+  filter: grayscale(0); /* إزالة التدرج الرمادي */
+  background: linear-gradient(135deg, #07c073, #0a8f56); /* نفس لون الباقي */
+}
+
+/* تنسيق البادج في الكارد الـ upcoming */
+.timeline-item.upcoming .upcoming-badge {
+  background: rgba(7, 192, 115, 0.1);
+  color: #07c073;
+}
+
+/* في الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .timeline-item.upcoming .upcoming-badge {
+    background: rgba(7, 192, 115, 0.2);
+    color: #07c073;
+  }
+}
+
+/* إزالة أي تأثيرات خاصة على الـ upcoming */
+.timeline-item.upcoming .timeline-content::before {
+  display: none;
+}
+
+.timeline-item.upcoming .timeline-content:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  border-color: #07c073;
+}
+/* ==================== UPCOMING ITEM - SAME AS NORMAL ==================== */
+.timeline-item.upcoming .timeline-content {
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+}
+
+.timeline-item.upcoming .timeline-icon {
+  filter: grayscale(0);
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+.timeline-item.upcoming .upcoming-badge {
+  background: rgba(7, 192, 115, 0.1);
+  color: #07c073;
+}
+
+/* دعم الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+  .timeline-item.upcoming .timeline-content {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #1a1a2e;
+  }
+
+  .timeline-item.upcoming .upcoming-badge {
+    background: rgba(7, 192, 115, 0.2);
+    color: #07c073;
+  }
+}
+/* لون أيقونة الكارد المستقبلي */
+.timeline-icon.future {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة medical */
+.timeline-icon.medical {
+  background: linear-gradient(135deg, #00ff66, #07c073);
+}
+
+/* لون أيقونة saudi */
+.timeline-icon.saudi {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة event */
+.timeline-icon.event {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة pointpay */
+.timeline-icon.pointpay {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة iti */
+.timeline-icon.iti {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة study */
+.timeline-icon.study {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة military */
+.timeline-icon.military {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة personal */
+.timeline-icon.personal {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة hiero */
+.timeline-icon.hiero {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}
+
+/* لون أيقونة university */
+.timeline-icon.university {
+  background: linear-gradient(135deg, #07c073, #0a8f56);
+}

@@ -41,7 +41,7 @@ async function loadCommonComponents() {
     const buttonsHTML = await buttonsResponse.text();
     document.body.insertAdjacentHTML("beforeend", buttonsHTML);
 
-    console.log("✅ Common components loaded");
+    // console.log("✅ Common components loaded");
 
     // ✅ تحديث الرابط النشط بعد تحميل المكونات
     setActiveNavLink();
@@ -213,7 +213,7 @@ function setActiveNavLink() {
     }
   });
 
-  console.log(`✅ Active link set for: ${currentPage}`);
+  // console.log(`✅ Active link set for: ${currentPage}`);
 }
 async function loadLanguage(lang) {
   try {
@@ -239,7 +239,7 @@ async function loadLanguage(lang) {
       window.updateTypingAnimation();
     }
 
-    console.log(`✅ Language loaded: ${lang}`);
+    // console.log(`✅ Language loaded: ${lang}`);
   } catch (error) {
     console.error("❌ Failed to load language:", error);
   }
