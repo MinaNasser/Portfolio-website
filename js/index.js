@@ -31,6 +31,45 @@ document.addEventListener("DOMContentLoaded", function () {
     initTypingAnimation();
   }, 300);
 });
+// ==================== DROPDOWN FUNCTIONALITY ====================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownBtn = document.getElementById("cvDropdownBtn");
+  const dropdownContainer = document.querySelector(".dropdown-container");
+
+  if (dropdownBtn && dropdownContainer) {
+    // Toggle dropdown on button click
+    dropdownBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      dropdownContainer.classList.toggle("active");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!dropdownContainer.contains(e.target)) {
+        dropdownContainer.classList.remove("active");
+      }
+    });
+
+    // Close dropdown when pressing ESC
+    document.addEventListener("keydown", function (e) {
+      if (
+        e.key === "Escape" &&
+        dropdownContainer.classList.contains("active")
+      ) {
+        dropdownContainer.classList.remove("active");
+      }
+    });
+
+    // Prevent dropdown from closing when clicking inside menu
+    const dropdownMenu = document.getElementById("cvDropdownMenu");
+    if (dropdownMenu) {
+      dropdownMenu.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+  }
+});
 
 function loadFeaturedProjects() {
   const featuredGrid = document.getElementById("featured-projects");
