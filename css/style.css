@@ -486,7 +486,14 @@ h6 {
   .scroll-top {
     bottom: 20px;
   }
-
+  .social-links {
+    gap: 0.8rem;
+  }
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
   [dir="rtl"] .theme-toggle,
   [dir="rtl"] .scroll-top,
   [dir="rtl"] .go-bottom {
@@ -4815,4 +4822,557 @@ html[dir="rtl"] .dropdown-item:hover {
   .dropdown-item:hover {
     background: rgba(7, 192, 115, 0.15);
   }
+}
+/* ==================== HERO SECTION - RESPONSIVE ==================== */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* التأثيرات الخلفية */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 159, 84, 0.08) 0%,
+    transparent 70%
+  );
+  top: -500px;
+  right: -500px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(46, 159, 84, 0.06) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+/* ==================== HERO CONTENT ==================== */
+.hero-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Typing Text - responsive */
+.typing-text {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  min-height: 80px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.typing-divider {
+  width: 80px;
+  height: 4px;
+  background: var(--gradient);
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+/* Hero Description */
+.hero-description {
+  font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 1.5rem 0;
+}
+
+/* Badges Container */
+.badge-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.5rem 0;
+}
+
+.badge {
+  background: rgba(46, 159, 84, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.badge i {
+  font-size: 0.8rem;
+}
+
+.badge:hover {
+  background: var(--gradient);
+  color: white;
+  transform: translateY(-2px);
+  border-color: transparent;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px -15px rgba(46, 159, 84, 0.35);
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+#cvDropdownBtn {
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 280px;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdown-container.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background: rgba(46, 159, 84, 0.1);
+  padding-left: 1.5rem;
+}
+
+.dropdown-item i:first-child {
+  width: 20px;
+  color: var(--primary);
+}
+
+.dropdown-item i:last-child {
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+.dropdown-item:hover i:last-child {
+  opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid var(--border-accent);
+}
+
+.social-links a:hover {
+  background: var(--gradient);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ==================== HERO IMAGE ==================== */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-width: 280px;
+}
+
+.image-wrapper {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 2px solid var(--border-accent);
+  transition: all 0.3s ease;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.image-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(
+    circle at center,
+    rgba(46, 159, 84, 0.3) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  background: var(--gradient);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 30px 0 0 30px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: none;
+  z-index: 10;
+}
+
+.experience-badge .years {
+  font-size: 2rem;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+}
+
+.experience-badge .text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ==================== RESPONSIVE BREAKPOINTS ==================== */
+
+/* شاشات كبيرة (لابتوب) */
+@media (max-width: 1200px) {
+  .hero-container {
+    gap: 2rem;
+  }
+  .image-wrapper {
+    max-width: 400px;
+  }
+}
+
+/* شاشات متوسطة (تابلت) */
+@media (max-width: 992px) {
+  .hero {
+    padding: 100px 0 60px;
+  }
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .badge-container {
+    justify-content: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .social-links {
+    justify-content: center;
+  }
+  .image-wrapper {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .hero-image {
+    margin-top: 2rem;
+  }
+  .experience-badge {
+    right: 20px;
+    bottom: 10px;
+  }
+}
+
+/* شاشات صغيرة (موبايل) */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 0 50px;
+  }
+  .typing-text {
+    min-height: 70px;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+  .btn {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+  }
+  .dropdown-container {
+    width: 100%;
+  }
+  #cvDropdownBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  .dropdown-menu {
+    position: fixed;
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 90%;
+    max-width: 300px;
+  }
+  .dropdown-container.active .dropdown-menu {
+    transform: translateX(-50%) translateY(0);
+  }
+  .badge {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .social-links {
+    gap: 0.6rem;
+  }
+  .social-links a {
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+  }
+  .image-wrapper {
+    max-width: 280px;
+  }
+  .experience-badge {
+    padding: 0.7rem 1rem;
+    bottom: -10px;
+    right: 10px;
+  }
+  .experience-badge .years {
+    font-size: 1.5rem;
+  }
+  .experience-badge .text {
+    font-size: 0.7rem;
+  }
+}
+
+/* شاشات صغيرة جداً */
+@media (max-width: 480px) {
+  .hero {
+    padding: 70px 0 40px;
+  }
+  .typing-text {
+    min-height: 60px;
+    font-size: 1.8rem;
+  }
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  .badge-container {
+    gap: 0.5rem;
+  }
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .social-links {
+    gap: 0.5rem;
+  }
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  .image-wrapper {
+    max-width: 240px;
+  }
+  .experience-badge {
+    padding: 0.5rem 0.8rem;
+    bottom: -5px;
+    right: 5px;
+  }
+  .experience-badge .years {
+    font-size: 1.2rem;
+  }
+  .experience-badge .text {
+    font-size: 0.6rem;
+  }
+}
+
+/* RTL Support */
+[dir="rtl"] .hero-content {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-description {
+  text-align: right;
+}
+
+[dir="rtl"] .badge-container {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .social-links {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .experience-badge {
+  right: auto;
+  left: 0;
+  border-radius: 0 30px 30px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: none;
+}
+
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  [dir="rtl"] .dropdown-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  [dir="rtl"] .badge-container {
+    justify-content: center;
+  }
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .hero::before,
+[data-theme="dark"] .hero::after {
+  background: radial-gradient(
+    circle,
+    rgba(76, 207, 108, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+[data-theme="dark"] .badge {
+  background: rgba(76, 207, 108, 0.15);
+  border-color: rgba(76, 207, 108, 0.3);
+}
+
+[data-theme="dark"] .dropdown-menu {
+  background: var(--bg-card);
+  border-color: rgba(76, 207, 108, 0.2);
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background: rgba(76, 207, 108, 0.15);
 }

@@ -21,9 +21,7 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <!-- المكونات هتتحمل تلقائياً من main.js (header, footer, buttons) -->
-
-    <!-- Hero Section -->
+    <!-- Hero Section - متجاوب بالكامل مع جميع الأجهزة -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-container">
@@ -67,7 +65,6 @@
               >
             </div>
             <div class="hero-buttons">
-              <!-- Hire Me Button -->
               <a
                 href="contact.html"
                 class="btn btn-primary"
@@ -75,8 +72,6 @@
               >
                 Hire Me Now! <i class="fas fa-arrow-right"></i>
               </a>
-
-              <!-- Dropdown for CVs -->
               <div class="dropdown-container">
                 <button class="btn btn-primary" id="cvDropdownBtn">
                   <i class="fas fa-file-alt"></i>
@@ -132,7 +127,6 @@
               <a href="https://www.facebook.com/MinaAl5al" target="_blank"
                 ><i class="fab fa-facebook-f"></i
               ></a>
-              <!-- portfolio -->
               <a
                 href="https://portfolio-website-pearl-five-19.vercel.app/"
                 target="_blank"
@@ -155,6 +149,139 @@
         </div>
       </div>
     </section>
+    <!-- المكونات هتتحمل تلقائياً من main.js (header, footer, buttons) -->
+
+    <!-- Hero Section
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-container">
+          <div class="hero-content" data-aos="fade-right">
+            <div class="typing-container">
+              <div class="typing-text" id="typing1"></div>
+              <hr class="typing-divider" />
+              <div class="typing-text" id="typing2"></div>
+            </div>
+            <p class="hero-description" data-i18n="hero_description">
+              Full Stack Developer with expertise in .NET Core, Angular,
+              Node.js, and MongoDB. Specialized in building scalable
+              architectures, microservices, and cloud-native applications.
+            </p>
+            <div class="badge-container">
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_net">.NET Full Stack</span></span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_architect"
+                  >Software Architect</span
+                ></span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_microservices">Microservices</span></span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_devops">DevOps</span></span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_kubernetes">Kubernetes</span></span
+              >
+              <span class="badge"
+                ><i class="fas fa-check-circle"></i>
+                <span data-i18n="badge_crm">CRM/BI</span></span
+              >
+            </div>
+            <div class="hero-buttons">
+              
+              <a
+                href="contact.html"
+                class="btn btn-primary"
+                data-i18n="hero_hire_btn"
+              >
+                Hire Me Now! <i class="fas fa-arrow-right"></i>
+              </a>
+
+              <div class="dropdown-container">
+                <button class="btn btn-primary" id="cvDropdownBtn">
+                  <i class="fas fa-file-alt"></i>
+                  <span data-i18n="hero_cv_btn">My Resumes</span>
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-menu" id="cvDropdownMenu">
+                  <a
+                    href="./Files/Mina_Nasser_Enjilizy_Fullsatck.pdf"
+                    class="dropdown-item"
+                    target="_blank"
+                  >
+                    <i class="fas fa-code"></i>
+                    <span>Full Stack Developer</span>
+                    <i class="fas fa-download"></i>
+                  </a>
+                  <a
+                    href="./Files/Mina_Nasser_Enjilizy_Software_Engineer.pdf"
+                    class="dropdown-item"
+                    target="_blank"
+                  >
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Software Engineer</span>
+                    <i class="fas fa-download"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/MinaNasser" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/mina-nasser-al5al/"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://x.com/MinaAl5al" target="_blank"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="https://www.youtube.com/@al5al207" target="_blank"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://www.instagram.com/mina_al5al/" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://t.me/MinaAl5al" target="_blank"
+                ><i class="fab fa-telegram"></i
+              ></a>
+              <a href="https://wa.me/201289565248" target="_blank"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="https://www.facebook.com/MinaAl5al" target="_blank"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+             
+              <a
+                href="https://portfolio-website-pearl-five-19.vercel.app/"
+                target="_blank"
+                ><i class="fas fa-briefcase"></i
+              ></a>
+            </div>
+          </div>
+          <div class="hero-image" data-aos="fade-left">
+            <div class="image-wrapper">
+              <img src="img/playstore.png" alt="Mina Nasser" />
+              <div class="image-glow"></div>
+            </div>
+            <div class="experience-badge">
+              <span class="years">1+</span>
+              <span class="text" data-i18n="hero_experience"
+                >Years Experience</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
     <!-- مختصر عني (Call to Action) -->
     <section class="about-preview">
