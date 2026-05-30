@@ -223,19 +223,14 @@ async function loadLanguage(lang) {
     updateContent();
     updatePageDirection();
     updateLogoText();
-
     // ✅ تحديث المتغيرات العامة
     window.translations = translations;
     window.currentLanguage = lang;
-
-
-
     // updateAgeDisplay
     // فقط اتصل بـ  إذا كان العنصر موجود في الصفحة
     if (document.getElementById("age-display")) {
       updateAgeDisplay();
     }
-
     updateDropdownLanguageText();
     // ✅ تحديث Typing Animation إذا كانت الصفحة الرئيسية
     if (window.updateTypingAnimation) {
