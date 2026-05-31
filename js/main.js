@@ -220,9 +220,11 @@ async function loadLanguage(lang) {
     const response = await fetch(`./lang/${lang}.json`);
     if (!response.ok) throw new Error("Language file not found");
     translations = await response.json();
+
     updateContent();
     updatePageDirection();
     updateLogoText();
+
     // ✅ تحديث المتغيرات العامة
     window.translations = translations;
     window.currentLanguage = lang;
