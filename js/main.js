@@ -225,7 +225,6 @@ async function loadLanguage(lang) {
     updatePageDirection();
     updateLogoText();
 
-    // ✅ تحديث المتغيرات العامة
     window.translations = translations;
     window.currentLanguage = lang;
     // updateAgeDisplay
