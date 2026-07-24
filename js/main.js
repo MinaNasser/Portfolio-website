@@ -232,12 +232,9 @@ async function loadLanguage(lang) {
       updateAgeDisplay();
     }
     updateDropdownLanguageText();
-    // ✅ تحديث Typing Animation إذا كانت الصفحة الرئيسية
     if (window.updateTypingAnimation) {
       window.updateTypingAnimation();
     }
-
-    // console.log(`✅ Language loaded: ${lang}`);
   } catch (error) {
     console.error("❌ Failed to load language:", error);
   }
