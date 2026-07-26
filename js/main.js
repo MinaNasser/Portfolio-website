@@ -224,7 +224,6 @@ async function loadLanguage(lang) {
     updateContent();
     updatePageDirection();
     updateLogoText();
-
     // ✅ تحديث المتغيرات العامة
     window.translations = translations;
     window.currentLanguage = lang;
