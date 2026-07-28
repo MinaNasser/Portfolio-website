@@ -229,7 +229,6 @@ async function loadLanguage(lang) {
     window.translations = translations;
     window.currentLanguage = lang;
     // updateAgeDisplay
-    // فقط اتصل بـ  إذا كان العنصر موجود في الصفحة
     if (document.getElementById("age-display")) {
       updateAgeDisplay();
     }
