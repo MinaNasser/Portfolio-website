@@ -238,7 +238,6 @@ async function loadLanguage(lang) {
       window.updateTypingAnimation();
     }
 
-    // console.log(`✅ Language loaded: ${lang}`);
   } catch (error) {
     console.error("❌ Failed to load language:", error);
   }
