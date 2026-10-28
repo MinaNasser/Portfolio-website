@@ -6,9 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initProjectModals();
 });
 
-// قائمة المشاريع كاملة مع إضافة المشاريع الجديدة
 const projects = [
-  // DMS Medical Platform (موجود)
   {
     name: "DMS Medical Platform",
     description:
@@ -36,8 +34,6 @@ const projects = [
     stars: "56",
     forks: "23",
   },
-
-  // PointPay - Rewards Platform
   {
     name: "PointPay - Rewards Platform",
     description:
@@ -93,8 +89,6 @@ const projects = [
     stars: "38",
     forks: "12",
   },
-
-  // RabbitMQ Implementation (موجود)
   {
     name: "RabbitMQ Implementation",
     description:
@@ -116,8 +110,6 @@ const projects = [
     stars: "38",
     forks: "10",
   },
-
-  // CQRS Pattern Implementation (موجود)
   {
     name: "CQRS Pattern Implementation",
     description:
@@ -138,8 +130,6 @@ const projects = [
     stars: "52",
     forks: "15",
   },
-
-  // Clean Architecture Template (موجود)
   {
     name: "Clean Architecture Template",
     description:
@@ -160,8 +150,6 @@ const projects = [
     stars: "67",
     forks: "18",
   },
-
-  // Unit Testing Best Practices (موجود)
   {
     name: "Unit Testing Best Practices",
     description:
@@ -182,8 +170,6 @@ const projects = [
     stars: "29",
     forks: "8",
   },
-
-  // SignalR Real-time Apps (موجود)
   {
     name: "SignalR Real-time Apps",
     description:
@@ -204,8 +190,6 @@ const projects = [
     stars: "34",
     forks: "9",
   },
-
-  // E-commerce with SignalR (موجود)
   {
     name: "E-commerce with SignalR",
     description:
@@ -226,7 +210,6 @@ const projects = [
     stars: "41",
     forks: "11",
   },
-  // المشروع 1: Food Recipe App (وصفات طعام)
   {
     name: "Food Recipe App (Foodek)",
     description:
@@ -249,8 +232,6 @@ const projects = [
     stars: "45",
     forks: "12",
   },
-
-  // المشروع 2: E-commerce Platform
   {
     name: "E-commerce Platform",
     description:
@@ -274,8 +255,6 @@ const projects = [
     stars: "38",
     forks: "9",
   },
-
-  // المشروع 3: Coffee Website Landing Page
   {
     name: "Coffee Website",
     description:
@@ -299,8 +278,6 @@ const projects = [
     stars: "29",
     forks: "7",
   },
-
-  // المشروع 4: Noon Clone
   {
     name: "Noon Clone",
     description:
