@@ -37,7 +37,7 @@ const projects = [
     forks: "23",
   },
 
-  // PointPay - Rewards Platform (موجود)
+  // PointPay - Rewards Platform
   {
     name: "PointPay - Rewards Platform",
     description:
