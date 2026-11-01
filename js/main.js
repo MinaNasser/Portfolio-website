@@ -186,18 +186,14 @@ async function initLanguage() {
 
 // ==================== ACTIVE NAVIGATION LINK ====================
 function setActiveNavLink() {
-  // الحصول على اسم الصفحة الحالية
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-  // الحصول على جميع روابط التنقل
   const navLinks = document.querySelectorAll(".nav-links a");
 
-  // إزالة كلاس active من جميع الروابط
   navLinks.forEach((link) => {
     link.classList.remove("active");
   });
 
-  // إضافة كلاس active للرابط المناسب
   navLinks.forEach((link) => {
     const linkPage = link.getAttribute("href").split("/").pop();
 
@@ -205,15 +201,12 @@ function setActiveNavLink() {
       link.classList.add("active");
     }
 
-    // حالة خاصة للصفحة الرئيسية
     if (currentPage === "" || currentPage === "index.html") {
       if (linkPage === "index.html") {
         link.classList.add("active");
       }
     }
   });
-
-  // console.log(`✅ Active link set for: ${currentPage}`);
 }
 async function loadLanguage(lang) {
   try {
@@ -224,27 +217,20 @@ async function loadLanguage(lang) {
     updateContent();
     updatePageDirection();
     updateLogoText();
-
-    // ✅ تحديث المتغيرات العامة
     window.translations = translations;
     window.currentLanguage = lang;
-    // updateAgeDisplay
     if (document.getElementById("age-display")) {
       updateAgeDisplay();
     }
     updateDropdownLanguageText();
-    // ✅ تحديث Typing Animation إذا كانت الصفحة الرئيسية
     if (window.updateTypingAnimation) {
       window.updateTypingAnimation();
     }
-
-    // console.log(`✅ Language loaded: ${lang}`);
   } catch (error) {
     console.error("❌ Failed to load language:", error);
   }
 }
 
-// دالة جديدة لتحديث نص القائمة المنسدلة
 function updateDropdownLanguageText() {
   document.querySelectorAll(".lang-option").forEach((option) => {
     const lang = option.getAttribute("data-lang");
