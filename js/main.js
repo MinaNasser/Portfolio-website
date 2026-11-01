@@ -230,7 +230,7 @@ async function loadLanguage(lang) {
     console.error("❌ Failed to load language:", error);
   }
 }
-
+// ==================== تحديث نص اللغة في القائمة المنسدلة ====================
 function updateDropdownLanguageText() {
   document.querySelectorAll(".lang-option").forEach((option) => {
     const lang = option.getAttribute("data-lang");
