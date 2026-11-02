@@ -237,14 +237,11 @@ function updateDropdownLanguageText() {
     const textSpan = option.querySelector(".lang-text");
     if (!textSpan) return;
 
-    // مسح المحتوى القديم
     textSpan.innerHTML = "";
 
-    // إنشاء عنصر العلم
     const flagSpan = document.createElement("span");
     flagSpan.className = lang === "en" ? "fi fi-us" : "fi fi-eg";
 
-    // إضافة العلم والنص
     textSpan.appendChild(flagSpan);
     textSpan.appendChild(
       document.createTextNode(
