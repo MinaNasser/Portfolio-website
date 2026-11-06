@@ -293,8 +293,6 @@ function updateContent() {
     if (translations[key]) element.placeholder = translations[key];
   });
 }
-//
-
 function updateLogoText() {
   const logoText = document.querySelector(".logo-text");
   if (!logoText) return;
