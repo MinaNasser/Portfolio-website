@@ -300,6 +300,8 @@ function updateLogoText() {
     translations["nav_name_logo"] ||
     (currentLanguage === "en" ? "Mina Nasser" : "مينا ناصر");
 }
+
+// ==================== تحديث اتجاه الصفحة ====================
 function updatePageDirection() {
   document.documentElement.dir = currentLanguage === "ar" ? "rtl" : "ltr";
   document.documentElement.lang = currentLanguage;
