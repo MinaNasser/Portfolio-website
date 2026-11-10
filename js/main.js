@@ -293,6 +293,7 @@ function updateContent() {
     if (translations[key]) element.placeholder = translations[key];
   });
 }
+// ==================== تحديث نص الشعار ====================
 function updateLogoText() {
   const logoText = document.querySelector(".logo-text");
   if (!logoText) return;
