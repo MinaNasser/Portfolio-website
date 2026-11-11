@@ -253,7 +253,7 @@ function updateDropdownLanguageText() {
     );
   });
 }
-
+// ==================== تحديث المحتوى ====================
 function updateContent() {
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
