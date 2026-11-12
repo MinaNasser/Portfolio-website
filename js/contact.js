@@ -103,7 +103,7 @@ async function handleFormSubmit(e) {
     });
 
     // console.log("✅ EmailJS Response:", response);
-
+    // console.log("✅ Email sent successfully!");
     if (response && response.status === 200) {
       showFormStatus(
         formStatus,
