@@ -52,6 +52,7 @@ async function loadCommonComponents() {
 }
 
 // نسخة احتياطية في حالة فشل تحميل الملفات
+// ==================== استخدام المكونات الاحتياطية ====================
 function useFallbackComponents() {
   // Header fallback
   const headerFallback = `
