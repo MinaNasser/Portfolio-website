@@ -78,12 +78,9 @@ async function handleFormSubmit(e) {
     return;
   }
 
-  // console.log("📧 Sending email with data:", formData);
-
   submitBtn.classList.add("loading");
   submitBtn.disabled = true;
   formStatus.style.display = "none";
-  // console.log("⏳ Sending email...");
   try {
     const SERVICE_ID = "service_dchjwzn";
     const TEMPLATE_ID = "template_om5mtdp";
