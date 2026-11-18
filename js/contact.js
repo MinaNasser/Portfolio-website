@@ -41,14 +41,11 @@ function showEmailJSError() {
     formStatus.style.display = "flex";
   }
 }
-
 async function handleFormSubmit(e) {
   e.preventDefault();
-
   const form = e.target;
   const submitBtn = form.querySelector('button[type="submit"]');
   const formStatus = document.getElementById("formStatus");
-
   if (!validateForm(form)) {
     showFormStatus(
       formStatus,
@@ -58,7 +55,6 @@ async function handleFormSubmit(e) {
     );
     return;
   }
-
   const formData = {
     name: document.getElementById("name")?.value.trim() || "",
     email: document.getElementById("email")?.value.trim() || "",
@@ -67,7 +63,6 @@ async function handleFormSubmit(e) {
     time: getCurrentTime(),
     date: getCurrentDate(),
   };
-
   if (!isValidEmail(formData.email)) {
     showFormStatus(
       formStatus,
@@ -77,18 +72,15 @@ async function handleFormSubmit(e) {
     );
     return;
   }
-
   submitBtn.classList.add("loading");
   submitBtn.disabled = true;
   formStatus.style.display = "none";
   try {
     const SERVICE_ID = "service_dchjwzn";
     const TEMPLATE_ID = "template_om5mtdp";
-
     if (typeof emailjs === "undefined") {
       throw new Error("EmailJS not loaded");
     }
-
     const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, {
       name: formData.name,
       email: formData.email,
